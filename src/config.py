@@ -6,9 +6,14 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATA_RAW_DIR = PROJECT_ROOT / "data" / "raw"
+OLIST_DIR = DATA_RAW_DIR / "olist"
 DATA_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 MODELS_DIR = PROJECT_ROOT / "models"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
 # Pass this to every split, CV, and model so runs stay comparable.
 RANDOM_SEED = 42
+
+# Orders purchased on or after this date are the final test period.
+# Study feature and target relationships on earlier orders only.
+HOLDOUT_START = "2018-06-01"

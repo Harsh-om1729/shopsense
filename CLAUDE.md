@@ -38,7 +38,7 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phase 0 is complete except for the first commit. Phase 1 is next. No dataset has been selected. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
+Phases 0 and 1 are complete. Phase 2 EDA is done, and the four proposed problems in `docs/phase_02_eda.md` await approval. Phase 3 is next. The dataset is Olist, in `data/raw/olist/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
 
 ## Commands
 - Install: `uv sync`
@@ -49,7 +49,9 @@ Phase 0 is complete except for the first commit. Phase 1 is next. No dataset has
 ## Structure
 `data/raw/` (read-only), `data/processed/`, `notebooks/`, `src/{data,features,models}/`, `models/`, `tests/`, `docs/`, `reports/`. `api/` and `frontend/` are planned for Phases 9 and 11.
 
-Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`.
+Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`. Load raw data with `src/data/load.py`.
+
+Orders purchased from `HOLDOUT_START` in `src/config.py` are the final test period. Study target relationships on earlier orders only, and split by time, never randomly. Follow the rules in `docs/phase_02_eda.md`.
 
 ## Docs to maintain
 - README

@@ -19,7 +19,12 @@ uv run pytest                 # run the tests
 uv run ruff check .           # lint
 uv run ruff format .          # format
 uv add <package>              # add a dependency and update the lockfile
+uv run jupyter nbconvert --to notebook --execute --inplace notebooks/01_eda.ipynb  # rerun EDA
 ```
+
+## Data
+
+Download the Olist dataset and put its 9 CSV files in `data/raw/olist/`. Data files aren't committed to git.
 
 ## Status
 
