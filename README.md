@@ -16,6 +16,7 @@ uv sync
 
 ```bash
 uv run python -m src.data.make_dataset  # build the tables in data/processed/
+uv run python -m src.features.make_features  # build the feature tables
 uv run pytest                 # run the tests
 uv run ruff check .           # lint
 uv run ruff format .          # format

@@ -53,7 +53,7 @@ POST_PURCHASE_COLUMNS = [
 # Never use these as features. They hold the answer or the time it was known.
 TARGET_COLUMNS = {
     "delivery": ["is_late", "days_to_deliver", "outcome_date", "period"],
-    "reviews": ["is_low", "review_score", "outcome_date", "period"],
+    "reviews": ["is_low", "review_score", "outcome_date", "score_known_date", "period"],
     "seller_snapshots": ["is_inactive", "outcome_date", "period"],
     "freight": ["freight_value", "period"],
 }
@@ -231,7 +231,9 @@ def build_review_table(base: pd.DataFrame, reviews: pd.DataFrame) -> pd.DataFram
         "order_delivered_customer_date",
     ]
     table = base.loc[mask, columns].merge(
-        latest_reviews(reviews)[["order_id", "review_score", "review_creation_date"]],
+        latest_reviews(reviews)[
+            ["order_id", "review_score", "review_creation_date", "review_answer_timestamp"]
+        ].rename(columns={"review_answer_timestamp": "score_known_date"}),
         on="order_id",
     )
 

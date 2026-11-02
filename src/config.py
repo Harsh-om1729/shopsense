@@ -8,6 +8,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_RAW_DIR = PROJECT_ROOT / "data" / "raw"
 OLIST_DIR = DATA_RAW_DIR / "olist"
 DATA_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
+FEATURES_DIR = DATA_PROCESSED_DIR / "features"
 MODELS_DIR = PROJECT_ROOT / "models"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
