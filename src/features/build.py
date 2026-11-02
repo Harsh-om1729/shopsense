@@ -8,11 +8,11 @@ import pandas as pd
 
 from src.data.preprocess import FAILED_STATUSES, clean_orders
 from src.features.common import (
-    black_friday,
     brazil_holidays,
     days_between,
     haversine_km,
     past_totals,
+    peak_window_days,
     safe_rate,
     smoothed_rate,
     window_totals,
@@ -85,7 +85,7 @@ FEATURES = {
             "day_of_week",
             "is_weekend",
             "is_holiday",
-            "is_black_friday",
+            "is_peak_window",
             "days_since_start",
         ],
         "categorical": [],
@@ -97,7 +97,7 @@ FEATURES = {
             "lag_6",
             "mean_4_lag_4",
             "has_holiday",
-            "has_black_friday",
+            "is_peak_week",
             "weeks_since_start",
         ],
         "categorical": ["category"],
@@ -233,11 +233,10 @@ def add_calendar_flags(table, date_column, years) -> pd.DataFrame:
     table = table.copy()
     dates = table[date_column]
     public_holidays = brazil_holidays(years)
-    peak_days = {black_friday(year) for year in years}
     table["day_of_week"] = dates.dt.day_of_week
     table["is_weekend"] = (dates.dt.day_of_week >= 5).astype(int)
     table["is_holiday"] = dates.isin(public_holidays).astype(int)
-    table["is_black_friday"] = dates.isin(peak_days).astype(int)
+    table["is_peak_window"] = dates.isin(peak_window_days(years)).astype(int)
     return table
 
 
@@ -246,7 +245,9 @@ def build_daily_features(daily_orders) -> pd.DataFrame:
     table = daily_orders.sort_values("date").reset_index(drop=True)
     table = add_calendar_flags(table, "date", sorted(table["date"].dt.year.unique()))
 
-    orders = table["orders"]
+    # The surge would otherwise echo through lags for weeks, so lags see the
+    # week before it instead. The target keeps the real value.
+    orders = table["orders"].where(table["is_peak_window"] == 0, table["orders"].shift(7))
     table["lag_28"] = orders.shift(DAILY_HORIZON)
     table["lag_35"] = orders.shift(DAILY_HORIZON + 7)
     table["lag_42"] = orders.shift(DAILY_HORIZON + 14)
@@ -259,7 +260,19 @@ def build_daily_features(daily_orders) -> pd.DataFrame:
 def build_weekly_features(weekly_category) -> pd.DataFrame:
     """Return features for problem 5, with every lag at least 4 weeks old."""
     table = weekly_category.sort_values(["category", "week_end"]).reset_index(drop=True)
-    by_category = table.groupby("category")["items"]
+    years = sorted(table["week_end"].dt.year.unique())
+
+    def week_contains(days):
+        marked = pd.Series(pd.to_datetime(sorted(days)))
+        week_ends = marked.dt.to_period("W-SUN").dt.end_time.dt.normalize()
+        return table["week_end"].isin(week_ends).astype(int)
+
+    table["has_holiday"] = week_contains(brazil_holidays(years))
+    table["is_peak_week"] = week_contains(peak_window_days(years))
+
+    # As with daily lags, peak weeks are replaced by the last normal week.
+    normal_items = table["items"].where(table["is_peak_week"] == 0)
+    by_category = normal_items.groupby(table["category"]).ffill().groupby(table["category"])
 
     table["lag_4"] = by_category.shift(WEEKLY_HORIZON)
     table["lag_5"] = by_category.shift(WEEKLY_HORIZON + 1)
@@ -267,18 +280,6 @@ def build_weekly_features(weekly_category) -> pd.DataFrame:
     table["mean_4_lag_4"] = by_category.transform(
         lambda items: items.shift(WEEKLY_HORIZON).rolling(4).mean()
     )
-
-    years = sorted(table["week_end"].dt.year.unique())
-    public_holidays = brazil_holidays(years)
-    peak_days = {black_friday(year) for year in years}
-
-    def week_contains(days):
-        marked = pd.Series(pd.to_datetime(sorted(days)))
-        week_ends = marked.dt.to_period("W-SUN").dt.end_time.dt.normalize()
-        return table["week_end"].isin(week_ends).astype(int)
-
-    table["has_holiday"] = week_contains(public_holidays)
-    table["has_black_friday"] = week_contains(peak_days)
     table["weeks_since_start"] = (table["week_end"] - table["week_end"].min()).dt.days // 7
     return table
 

@@ -108,6 +108,10 @@ def share_by_predicted(actual, predicted, valid, train):
     return metrics.share_by_predicted(actual, predicted)
 
 
+def mean_predicted(actual, predicted, valid, train):
+    return float(np.mean(predicted))
+
+
 def mape(actual, predicted, valid, train):
     return metrics.mape_nonzero(actual, predicted)
 
@@ -190,7 +194,11 @@ PROBLEMS = [
             "Median by customer state": by_group(["customer_state"], "median"),
             "Ridge regression": linear_regressor("delivery"),
         },
-        metrics={"mae": mae, "share_by_predicted": share_by_predicted},
+        metrics={
+            "mae": mae,
+            "share_by_predicted": share_by_predicted,
+            "mean_predicted": mean_predicted,
+        },
     ),
     Problem(
         name="5. Category demand forecast",
@@ -243,13 +251,16 @@ PROBLEMS = [
 ]
 
 
-def evaluate_problem(problem: Problem, table: pd.DataFrame) -> pd.DataFrame:
-    """Return one row per baseline, fold, and metric, using development rows only."""
+def usable_rows(problem: Problem, table: pd.DataFrame) -> pd.DataFrame:
+    """Return rows a model may use, refusing anything outside development."""
     if not table["period"].eq("development").all():
-        raise ValueError("Baselines must only see development rows.")
+        raise ValueError("Models must only see development rows.")
+    return table.dropna(subset=list(problem.required_columns))
 
-    usable = table.dropna(subset=list(problem.required_columns))
-    results = []
+
+def score_predictor(problem, usable, label, predict):
+    """Return metric rows and out-of-fold predictions for one predictor."""
+    results, predictions = [], []
     for fold in problem.folds():
         train, valid = split_fold(
             usable, fold, problem.time_column, problem.known_column, problem.gap_days
@@ -257,18 +268,28 @@ def evaluate_problem(problem: Problem, table: pd.DataFrame) -> pd.DataFrame:
         if train.empty or valid.empty:
             raise ValueError(f"{problem.name} has an empty fold: {fold.name}.")
 
-        for baseline, predict in problem.baselines.items():
-            predicted = predict(train, valid, problem.target)
-            for metric, compute in problem.metrics.items():
-                results.append(
-                    {
-                        "problem": problem.name,
-                        "baseline": baseline,
-                        "fold": fold.name,
-                        "metric": metric,
-                        "value": compute(valid[problem.target], predicted, valid, train),
-                        "train_rows": len(train),
-                        "valid_rows": len(valid),
-                    }
-                )
+        predicted = predict(train, valid, problem.target)
+        actual = valid[problem.target]
+        predictions.append(pd.DataFrame({"fold": fold.name, "actual": actual, "score": predicted}))
+        for metric, compute in problem.metrics.items():
+            results.append(
+                {
+                    "problem": problem.name,
+                    "baseline": label,
+                    "fold": fold.name,
+                    "metric": metric,
+                    "value": compute(actual, predicted, valid, train),
+                    "train_rows": len(train),
+                    "valid_rows": len(valid),
+                }
+            )
+    return results, pd.concat(predictions, ignore_index=True)
+
+
+def evaluate_problem(problem: Problem, table: pd.DataFrame) -> pd.DataFrame:
+    """Return one row per baseline, fold, and metric, using development rows only."""
+    usable = usable_rows(problem, table)
+    results = []
+    for baseline, predict in problem.baselines.items():
+        results += score_predictor(problem, usable, baseline, predict)[0]
     return pd.DataFrame(results)

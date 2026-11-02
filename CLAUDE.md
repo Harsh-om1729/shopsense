@@ -38,13 +38,14 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phases 0 to 5 are complete. Phase 6 is next, and its priorities are in `docs/phase_05_baselines.md`. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
+Phases 0 to 6 are complete. Phase 7 is next, and tuned settings are in `reports/tuned_models.json`. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
 
 ## Commands
 - Install: `uv sync`
 - Build processed tables: `uv run python -m src.data.make_dataset`
 - Build feature tables: `uv run python -m src.features.make_features`
 - Score baselines: `uv run python -m src.models.run_baselines`
+- Tune models (about 6 minutes): `uv run python -m src.models.tune`
 - Test: `uv run pytest`
 - Lint and format: `uv run ruff check .` and `uv run ruff format .`
 - Add a dependency: `uv add <package>`, never `pip install`

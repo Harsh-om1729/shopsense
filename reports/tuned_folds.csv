@@ -1,0 +1,103 @@
+problem,baseline,fold,metric,value,train_rows,valid_rows
+1. Late delivery risk,Tuned model,2017-09,pr_auc,0.07614316801344148,17902,8628
+1. Late delivery risk,Tuned model,2017-09,recall_at_precision,0.01084010840108401,17902,8628
+1. Late delivery risk,Tuned model,2017-11,pr_auc,0.152782279930048,26238,12801
+1. Late delivery risk,Tuned model,2017-11,recall_at_precision,0.001520912547528517,26238,12801
+1. Late delivery risk,Tuned model,2018-01,pr_auc,0.23240406942077707,37834,13619
+1. Late delivery risk,Tuned model,2018-01,recall_at_precision,0.3814199395770393,37834,13619
+1. Late delivery risk,Tuned model,2018-03,pr_auc,0.2844379567487244,49827,13711
+1. Late delivery risk,Tuned model,2018-03,recall_at_precision,0.5080593165699548,49827,13711
+1. Late delivery risk,Tuned model,2017-11,forward_precision,0.1484375,8628,12801
+1. Late delivery risk,Tuned model,2017-11,forward_recall,0.014448669201520912,8628,12801
+1. Late delivery risk,Tuned model,2018-01,forward_precision,0.4063157894736842,21429,13619
+1. Late delivery risk,Tuned model,2018-01,forward_recall,0.14577039274924472,21429,13619
+1. Late delivery risk,Tuned model,2018-03,forward_precision,0.39300134589502017,35048,13711
+1. Late delivery risk,Tuned model,2018-03,forward_recall,0.1882656350741457,35048,13711
+2. Low review risk,Tuned model,2017-09,pr_auc,0.32140276456009687,17651,8521
+2. Low review risk,Tuned model,2017-09,recall_at_precision,0.2781456953642384,17651,8521
+2. Low review risk,Tuned model,2017-11,pr_auc,0.5117841340965023,25831,12665
+2. Low review risk,Tuned model,2017-11,recall_at_precision,0.5637922339889057,25831,12665
+2. Low review risk,Tuned model,2018-01,pr_auc,0.5515971751667937,37447,13464
+2. Low review risk,Tuned model,2018-01,recall_at_precision,0.618552036199095,37447,13464
+2. Low review risk,Tuned model,2018-03,pr_auc,0.5622098853121422,49213,13651
+2. Low review risk,Tuned model,2018-03,recall_at_precision,0.6481316725978647,49213,13651
+2. Low review risk,Tuned model,2017-11,forward_precision,0.627373935821873,8521,12665
+2. Low review risk,Tuned model,2017-11,forward_recall,0.4831064044377206,8521,12665
+2. Low review risk,Tuned model,2018-01,forward_precision,0.52099533437014,21186,13464
+2. Low review risk,Tuned model,2018-01,forward_recall,0.6063348416289592,21186,13464
+2. Low review risk,Tuned model,2018-03,forward_precision,0.49728260869565216,34650,13651
+2. Low review risk,Tuned model,2018-03,forward_recall,0.6512455516014235,34650,13651
+3. Daily order forecast,Tuned model,2017-12-15,mae,53.759598853578204,289,28
+3. Daily order forecast,Tuned model,2017-12-15,mase,1.59766117364412,289,28
+3. Daily order forecast,Tuned model,2018-01-12,mae,41.74271329591658,317,28
+3. Daily order forecast,Tuned model,2018-01-12,mase,1.1689468041313587,317,28
+3. Daily order forecast,Tuned model,2018-02-09,mae,21.938563071481234,345,28
+3. Daily order forecast,Tuned model,2018-02-09,mase,0.632537261636156,345,28
+3. Daily order forecast,Tuned model,2018-03-09,mae,27.376886324106785,373,28
+3. Daily order forecast,Tuned model,2018-03-09,mase,0.7987835136019676,373,28
+3. Daily order forecast,Tuned model,2018-04-06,mae,29.920141269957103,401,28
+3. Daily order forecast,Tuned model,2018-04-06,mase,0.8641354391117944,401,28
+3. Daily order forecast,Tuned model,2018-05-04,mae,74.03051635814498,429,28
+3. Daily order forecast,Tuned model,2018-05-04,mase,2.1845240125261993,429,28
+4. Delivery time estimate,Tuned model,2017-09,mae,3.899218423348088,17902,8628
+4. Delivery time estimate,Tuned model,2017-09,share_by_predicted,0.47264719517848863,17902,8628
+4. Delivery time estimate,Tuned model,2017-09,mean_predicted,10.357717011381498,17902,8628
+4. Delivery time estimate,Tuned model,2017-11,mae,6.201295295465445,26238,12801
+4. Delivery time estimate,Tuned model,2017-11,share_by_predicted,0.3278650105460511,26238,12801
+4. Delivery time estimate,Tuned model,2017-11,mean_predicted,10.631750153825603,26238,12801
+4. Delivery time estimate,Tuned model,2018-01,mae,5.952326557994999,37834,13619
+4. Delivery time estimate,Tuned model,2018-01,share_by_predicted,0.4670680666715618,37834,13619
+4. Delivery time estimate,Tuned model,2018-01,mean_predicted,12.51437414016444,37834,13619
+4. Delivery time estimate,Tuned model,2018-03,mae,5.290714089280919,49827,13711
+4. Delivery time estimate,Tuned model,2018-03,share_by_predicted,0.530450003646707,49827,13711
+4. Delivery time estimate,Tuned model,2018-03,mean_predicted,12.09590122963013,49827,13711
+4. Delivery time estimate,Tuned 90th percentile promise,2017-09,mae,6.345758241477219,17902,8628
+4. Delivery time estimate,Tuned 90th percentile promise,2017-09,share_by_predicted,0.8511821974965229,17902,8628
+4. Delivery time estimate,Tuned 90th percentile promise,2017-09,mean_predicted,16.427555229966472,17902,8628
+4. Delivery time estimate,Tuned 90th percentile promise,2017-11,mae,7.0428245671067895,26238,12801
+4. Delivery time estimate,Tuned 90th percentile promise,2017-11,share_by_predicted,0.7325990157018983,26238,12801
+4. Delivery time estimate,Tuned 90th percentile promise,2017-11,mean_predicted,17.684720309281925,26238,12801
+4. Delivery time estimate,Tuned 90th percentile promise,2018-01,mae,8.99540273982304,37834,13619
+4. Delivery time estimate,Tuned 90th percentile promise,2018-01,share_by_predicted,0.8328071077171598,37834,13619
+4. Delivery time estimate,Tuned 90th percentile promise,2018-01,mean_predicted,21.17086394032602,37834,13619
+4. Delivery time estimate,Tuned 90th percentile promise,2018-03,mae,9.823966915142078,49827,13711
+4. Delivery time estimate,Tuned 90th percentile promise,2018-03,share_by_predicted,0.8687914812923929,49827,13711
+4. Delivery time estimate,Tuned 90th percentile promise,2018-03,mean_predicted,21.479006873254583,49827,13711
+4. Delivery time estimate,Tuned promise with margin,2017-11,share_by_predicted,0.7906413561440513,8628,12801
+4. Delivery time estimate,Tuned promise with margin,2017-11,mean_predicted,19.470230568663524,8628,12801
+4. Delivery time estimate,Tuned promise with margin,2018-01,share_by_predicted,0.9085101696159776,21429,13619
+4. Delivery time estimate,Tuned promise with margin,2018-01,mean_predicted,26.49233637267777,21429,13619
+4. Delivery time estimate,Tuned promise with margin,2018-03,share_by_predicted,0.9319524469404128,35048,13711
+4. Delivery time estimate,Tuned promise with margin,2018-03,mean_predicted,26.53031323360624,35048,13711
+5. Category demand forecast,Tuned model,2017-12-15,wape,0.36393350723970447,410,40
+5. Category demand forecast,Tuned model,2018-01-12,wape,0.3254442296412581,450,40
+5. Category demand forecast,Tuned model,2018-02-09,wape,0.2830480597781023,490,40
+5. Category demand forecast,Tuned model,2018-03-09,wape,0.15042522783729,530,40
+5. Category demand forecast,Tuned model,2018-04-06,wape,0.2141638722208961,570,40
+5. Category demand forecast,Tuned model,2018-05-04,wape,0.33274021619941246,610,40
+6. Seller inactivity risk,Tuned model,2017-09,pr_auc,0.5788284803073398,2982,1898
+6. Seller inactivity risk,Tuned model,2017-09,recall_at_precision,0.42857142857142855,2982,1898
+6. Seller inactivity risk,Tuned model,2017-09,revenue_recall,0.22634911739075134,2982,1898
+6. Seller inactivity risk,Tuned model,2017-11,pr_auc,0.579593947065229,4750,2303
+6. Seller inactivity risk,Tuned model,2017-11,recall_at_precision,0.4131534569983137,4750,2303
+6. Seller inactivity risk,Tuned model,2017-11,revenue_recall,0.2100846475925117,4750,2303
+6. Seller inactivity risk,Tuned model,2018-01,pr_auc,0.6404239715350634,6825,2594
+6. Seller inactivity risk,Tuned model,2018-01,recall_at_precision,0.6737120211360634,6825,2594
+6. Seller inactivity risk,Tuned model,2018-01,revenue_recall,0.5029357148868852,6825,2594
+6. Seller inactivity risk,Tuned model,2018-03,pr_auc,0.6017543930346712,8046,2708
+6. Seller inactivity risk,Tuned model,2018-03,recall_at_precision,0.5949197860962567,8046,2708
+6. Seller inactivity risk,Tuned model,2018-03,revenue_recall,0.3423175687267473,8046,2708
+6. Seller inactivity risk,Tuned model,2017-11,forward_precision,0.6143617021276596,1898,2303
+6. Seller inactivity risk,Tuned model,2017-11,forward_recall,0.38954468802698144,1898,2303
+6. Seller inactivity risk,Tuned model,2018-01,forward_precision,0.6842105263157895,4201,2594
+6. Seller inactivity risk,Tuned model,2018-01,forward_recall,0.37780713342140027,4201,2594
+6. Seller inactivity risk,Tuned model,2018-03,forward_precision,0.6509090909090909,6795,2708
+6. Seller inactivity risk,Tuned model,2018-03,forward_recall,0.4786096256684492,6795,2708
+7. Freight cost estimate,Tuned model,2017-09,mae,3.3130558951197138,23545,9164
+7. Freight cost estimate,Tuned model,2017-09,mape,0.5436910416287283,23545,9164
+7. Freight cost estimate,Tuned model,2017-11,mae,3.1071952174154607,32709,13605
+7. Freight cost estimate,Tuned model,2017-11,mape,0.41063849960532195,32709,13605
+7. Freight cost estimate,Tuned model,2018-01,mae,2.8189921850569744,46314,14389
+7. Freight cost estimate,Tuned model,2018-01,mape,0.20940207568714111,46314,14389
+7. Freight cost estimate,Tuned model,2018-03,mae,4.939564345014918,60703,14648
+7. Freight cost estimate,Tuned model,2018-03,mape,0.4502103979692282,60703,14648

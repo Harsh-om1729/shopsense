@@ -18,6 +18,7 @@ uv sync
 uv run python -m src.data.make_dataset  # build the tables in data/processed/
 uv run python -m src.features.make_features  # build the feature tables
 uv run python -m src.models.run_baselines  # score baselines in reports/model_comparison.md
+uv run python -m src.models.tune  # tune models, about 6 minutes
 uv run pytest                 # run the tests
 uv run ruff check .           # lint
 uv run ruff format .          # format

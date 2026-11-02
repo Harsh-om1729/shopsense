@@ -15,6 +15,10 @@ Primary metric: `pr_auc`. Higher is better.
 | Rate by same-state route | `recall_at_precision` | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
 | Logistic regression | `pr_auc` | 0.1365 | 0.0495 | 0.0900 | 0.2000 |
 | Logistic regression | `recall_at_precision` | 0.0808 | 0.1251 | 0.0000 | 0.2637 |
+| Tuned model | `pr_auc` | 0.1864 | 0.0913 | 0.0761 | 0.2844 |
+| Tuned model | `recall_at_precision` | 0.2255 | 0.2585 | 0.0015 | 0.5081 |
+| Tuned model | `forward_precision` | 0.3159 | 0.1452 | 0.1484 | 0.4063 |
+| Tuned model | `forward_recall` | 0.1162 | 0.0906 | 0.0144 | 0.1883 |
 
 ## 2. Low review risk
 
@@ -28,6 +32,10 @@ Primary metric: `pr_auc`. Higher is better.
 | Rate by overdue | `recall_at_precision` | 0.3819 | 0.1165 | 0.2097 | 0.4671 |
 | Logistic regression | `pr_auc` | 0.4686 | 0.1096 | 0.3076 | 0.5451 |
 | Logistic regression | `recall_at_precision` | 0.5131 | 0.1653 | 0.2693 | 0.6246 |
+| Tuned model | `pr_auc` | 0.4867 | 0.1123 | 0.3214 | 0.5622 |
+| Tuned model | `recall_at_precision` | 0.5272 | 0.1696 | 0.2781 | 0.6481 |
+| Tuned model | `forward_precision` | 0.5486 | 0.0693 | 0.4973 | 0.6274 |
+| Tuned model | `forward_recall` | 0.5802 | 0.0871 | 0.4831 | 0.6512 |
 
 ## 3. Daily order forecast
 
@@ -35,12 +43,14 @@ Primary metric: `mae`. Lower is better.
 
 | Baseline | Metric | Mean | Std | Lowest fold | Highest fold |
 |---|---|---:|---:|---:|---:|
-| Same weekday 4 weeks ago | `mae` | 66.6488 | 42.7628 | 31.2143 | 141.3929 |
-| Same weekday 4 weeks ago | `mase` | 1.9433 | 1.2762 | 0.9015 | 4.2020 |
-| Mean of 28 days, 4 weeks ago | `mae` | 53.4828 | 19.7601 | 34.4464 | 78.8865 |
-| Mean of 28 days, 4 weeks ago | `mase` | 1.5573 | 0.5980 | 0.9932 | 2.3444 |
-| Ridge regression | `mae` | 49.1883 | 32.7497 | 23.9102 | 97.4770 |
-| Ridge regression | `mase` | 1.4403 | 0.9836 | 0.6894 | 2.8969 |
+| Same weekday 4 weeks ago | `mae` | 55.4167 | 23.8901 | 31.2143 | 80.7500 |
+| Same weekday 4 weeks ago | `mase` | 1.6095 | 0.6984 | 0.9015 | 2.3828 |
+| Mean of 28 days, 4 weeks ago | `mae` | 48.1601 | 15.3659 | 34.4464 | 76.0867 |
+| Mean of 28 days, 4 weeks ago | `mase` | 1.3991 | 0.4572 | 0.9932 | 2.2452 |
+| Ridge regression | `mae` | 43.3807 | 21.9492 | 25.4337 | 80.7204 |
+| Ridge regression | `mase` | 1.2659 | 0.6606 | 0.7421 | 2.3819 |
+| Tuned model | `mae` | 41.4614 | 19.6203 | 21.9386 | 74.0305 |
+| Tuned model | `mase` | 1.2078 | 0.5872 | 0.6325 | 2.1845 |
 
 ## 4. Delivery time estimate
 
@@ -50,12 +60,24 @@ Primary metric: `mae`. Lower is better.
 |---|---|---:|---:|---:|---:|
 | Olist's promised days | `mae` | 11.8860 | 0.4623 | 11.4018 | 12.5108 |
 | Olist's promised days | `share_by_predicted` | 0.8975 | 0.0342 | 0.8708 | 0.9475 |
+| Olist's promised days | `mean_predicted` | 23.9355 | 1.3826 | 22.7395 | 25.4501 |
 | Overall median | `mae` | 6.8089 | 1.2070 | 5.0498 | 7.6618 |
 | Overall median | `share_by_predicted` | 0.4451 | 0.0749 | 0.3697 | 0.5191 |
+| Overall median | `mean_predicted` | 10.7311 | 0.2843 | 10.3933 | 11.0616 |
 | Median by customer state | `mae` | 5.9704 | 1.2146 | 4.2587 | 6.8801 |
 | Median by customer state | `share_by_predicted` | 0.4240 | 0.0832 | 0.3439 | 0.5122 |
+| Median by customer state | `mean_predicted` | 10.8075 | 0.1872 | 10.5532 | 11.0045 |
 | Ridge regression | `mae` | 5.7386 | 1.4070 | 3.9164 | 7.2878 |
 | Ridge regression | `share_by_predicted` | 0.4532 | 0.1477 | 0.2538 | 0.6105 |
+| Ridge regression | `mean_predicted` | 11.3260 | 1.7579 | 9.2814 | 13.0761 |
+| Tuned model | `mae` | 5.3359 | 1.0320 | 3.8992 | 6.2013 |
+| Tuned model | `share_by_predicted` | 0.4495 | 0.0860 | 0.3279 | 0.5305 |
+| Tuned model | `mean_predicted` | 11.3999 | 1.0650 | 10.3577 | 12.5144 |
+| Tuned 90th percentile promise | `mae` | 8.0520 | 1.6289 | 6.3458 | 9.8240 |
+| Tuned 90th percentile promise | `share_by_predicted` | 0.8213 | 0.0610 | 0.7326 | 0.8688 |
+| Tuned 90th percentile promise | `mean_predicted` | 19.1905 | 2.5206 | 16.4276 | 21.4790 |
+| Tuned promise with margin | `share_by_predicted` | 0.8770 | 0.0757 | 0.7906 | 0.9320 |
+| Tuned promise with margin | `mean_predicted` | 24.1643 | 4.0652 | 19.4702 | 26.5303 |
 
 ## 5. Category demand forecast
 
@@ -63,8 +85,9 @@ Primary metric: `wape`. Lower is better.
 
 | Baseline | Metric | Mean | Std | Lowest fold | Highest fold |
 |---|---|---:|---:|---:|---:|
-| Mean of 4 weeks, 4 weeks ago | `wape` | 0.3582 | 0.2091 | 0.1878 | 0.7625 |
-| Ridge regression | `wape` | 0.3176 | 0.1386 | 0.1715 | 0.5676 |
+| Mean of 4 weeks, 4 weeks ago | `wape` | 0.2863 | 0.0713 | 0.1878 | 0.3789 |
+| Ridge regression | `wape` | 0.2787 | 0.0814 | 0.1517 | 0.3653 |
+| Tuned model | `wape` | 0.2783 | 0.0812 | 0.1504 | 0.3639 |
 
 ## 6. Seller inactivity risk
 
@@ -81,6 +104,11 @@ Primary metric: `pr_auc`. Higher is better.
 | Logistic regression | `pr_auc` | 0.5822 | 0.0313 | 0.5558 | 0.6205 |
 | Logistic regression | `recall_at_precision` | 0.4712 | 0.1251 | 0.3440 | 0.6050 |
 | Logistic regression | `revenue_recall` | 0.3159 | 0.0994 | 0.2243 | 0.4488 |
+| Tuned model | `pr_auc` | 0.6002 | 0.0289 | 0.5788 | 0.6404 |
+| Tuned model | `recall_at_precision` | 0.5276 | 0.1275 | 0.4132 | 0.6737 |
+| Tuned model | `revenue_recall` | 0.3204 | 0.1352 | 0.2101 | 0.5029 |
+| Tuned model | `forward_precision` | 0.6498 | 0.0349 | 0.6144 | 0.6842 |
+| Tuned model | `forward_recall` | 0.4153 | 0.0551 | 0.3778 | 0.4786 |
 
 ## 7. Freight cost estimate
 
@@ -94,3 +122,5 @@ Primary metric: `mae`. Lower is better.
 | Median by state pair | `mape` | 0.4603 | 0.1102 | 0.3018 | 0.5495 |
 | Ridge regression | `mae` | 4.7752 | 0.7306 | 4.2488 | 5.8493 |
 | Ridge regression | `mape` | 0.5073 | 0.1566 | 0.2992 | 0.6793 |
+| Tuned model | `mae` | 3.5447 | 0.9517 | 2.8190 | 4.9396 |
+| Tuned model | `mape` | 0.4035 | 0.1409 | 0.2094 | 0.5437 |

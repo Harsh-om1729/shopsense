@@ -8,6 +8,8 @@ import pandas as pd
 # overall rate. This stops a seller with one late order from scoring 100%.
 PRIOR_WEIGHT = 20
 
+PEAK_WINDOW_DAYS = 5
+
 
 def haversine_km(lat1, lng1, lat2, lng2):
     """Return the great-circle distance in kilometres."""
@@ -85,3 +87,12 @@ def black_friday(year):
     """Return the Friday after the fourth Thursday of November."""
     thursdays = pd.date_range(f"{year}-11-01", f"{year}-11-30", freq="W-THU")
     return thursdays[3] + pd.Timedelta(days=1)
+
+
+def peak_window_days(years):
+    """Return the days of the Black Friday surge, which lasted five days in 2017."""
+    return {
+        black_friday(year) + pd.Timedelta(days=offset)
+        for year in years
+        for offset in range(PEAK_WINDOW_DAYS)
+    }

@@ -1,0 +1,81 @@
+{
+  "1. Late delivery risk": {
+    "family": "boosted_classifier",
+    "params": {
+      "min_samples_leaf": 20,
+      "max_leaf_nodes": 7,
+      "max_iter": 100,
+      "learning_rate": 0.03,
+      "l2_regularization": 1.0
+    },
+    "target_precision": 0.25,
+    "alert_cutoff": 0.08823995675524075
+  },
+  "2. Low review risk": {
+    "family": "boosted_classifier",
+    "params": {
+      "min_samples_leaf": 100,
+      "max_leaf_nodes": 15,
+      "max_iter": 200,
+      "learning_rate": 0.03,
+      "l2_regularization": 1.0
+    },
+    "target_precision": 0.5,
+    "alert_cutoff": 0.1790150649301505
+  },
+  "3. Daily order forecast": {
+    "family": "ridge",
+    "params": {
+      "alpha": 100.0
+    }
+  },
+  "4. Delivery time estimate": {
+    "family": "boosted_median",
+    "params": {
+      "min_samples_leaf": 20,
+      "max_leaf_nodes": 7,
+      "max_iter": 100,
+      "learning_rate": 0.1,
+      "l2_regularization": 1.0
+    }
+  },
+  "4b. Delivery promise": {
+    "family": "boosted_quantile",
+    "params": {
+      "min_samples_leaf": 20,
+      "max_leaf_nodes": 7,
+      "max_iter": 100,
+      "learning_rate": 0.1,
+      "l2_regularization": 1.0
+    },
+    "margin_days": 4.266912751419616
+  },
+  "5. Category demand forecast": {
+    "family": "ridge",
+    "params": {
+      "alpha": 0.1
+    }
+  },
+  "6. Seller inactivity risk": {
+    "family": "boosted_classifier",
+    "params": {
+      "min_samples_leaf": 200,
+      "max_leaf_nodes": 7,
+      "max_iter": 100,
+      "learning_rate": 0.03,
+      "l2_regularization": 10.0
+    },
+    "target_precision": 0.6,
+    "alert_cutoff": 0.4555494139048257
+  },
+  "7. Freight cost estimate": {
+    "family": "boosted_median",
+    "params": {
+      "min_samples_leaf": 20,
+      "max_leaf_nodes": 15,
+      "max_iter": 200,
+      "learning_rate": 0.1,
+      "l2_regularization": 1.0
+    }
+  }
+}

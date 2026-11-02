@@ -1,0 +1,67 @@
+problem,family,params,metric,mean,std
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.1864,0.0877
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.1864,0.0913
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",pr_auc,0.1776,0.0787
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 50}",pr_auc,0.1773,0.0782
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.1855,0.0859
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",pr_auc,0.184,0.0844
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 200}",pr_auc,0.1828,0.0871
+1. Late delivery risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",pr_auc,0.1677,0.0799
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.4857,0.1109
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.4855,0.1087
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",pr_auc,0.4807,0.1131
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 50}",pr_auc,0.482,0.1139
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.4857,0.1097
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",pr_auc,0.4867,0.1123
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 200}",pr_auc,0.4839,0.1144
+2. Low review risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",pr_auc,0.466,0.1134
+3. Daily order forecast,ridge,"{""alpha"": 0.1}",mae,43.6953,22.2589
+3. Daily order forecast,ridge,"{""alpha"": 1.0}",mae,43.3807,21.9492
+3. Daily order forecast,ridge,"{""alpha"": 10.0}",mae,41.7681,20.4482
+3. Daily order forecast,ridge,"{""alpha"": 100.0}",mae,41.4614,19.6203
+3. Daily order forecast,ridge,"{""alpha"": 1000.0}",mae,47.5825,17.2588
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 5}",mae,59.6385,44.1525
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 50, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 5}",mae,56.4514,38.1115
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",mae,71.1854,57.4381
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 10}",mae,79.5986,69.2395
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.1, ""max_iter"": 200, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 10}",mae,89.3282,80.0118
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 10}",mae,75.0082,61.4113
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",mae,72.2922,61.0158
+3. Daily order forecast,boosted_ratio,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 5}",mae,57.6457,40.0998
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",mae,5.3364,1.0307
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",mae,5.467,1.086
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",mae,5.3378,1.0269
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 50}",mae,5.4033,1.0684
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",mae,5.3359,1.032
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",mae,5.3731,1.0598
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 200}",mae,5.4599,1.0853
+4. Delivery time estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",mae,5.3515,1.0244
+5. Category demand forecast,ridge,"{""alpha"": 0.1}",wape,0.2783,0.0812
+5. Category demand forecast,ridge,"{""alpha"": 1.0}",wape,0.2787,0.0814
+5. Category demand forecast,ridge,"{""alpha"": 10.0}",wape,0.2826,0.0823
+5. Category demand forecast,ridge,"{""alpha"": 100.0}",wape,0.2909,0.0854
+5. Category demand forecast,ridge,"{""alpha"": 1000.0}",wape,0.2912,0.0831
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 5}",wape,0.3208,0.0859
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 50, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 5}",wape,0.3379,0.0939
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",wape,0.3519,0.1153
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 10}",wape,0.3572,0.1455
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.1, ""max_iter"": 200, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 10}",wape,0.337,0.1073
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 10}",wape,0.3692,0.1548
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",wape,0.3554,0.1202
+5. Category demand forecast,boosted_ratio,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 5}",wape,0.3171,0.0842
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.5807,0.0389
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.5955,0.0311
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",pr_auc,0.5727,0.0378
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 50}",pr_auc,0.5827,0.036
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",pr_auc,0.5845,0.0327
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",pr_auc,0.5835,0.0319
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 200}",pr_auc,0.6002,0.0289
+6. Seller inactivity risk,boosted_classifier,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",pr_auc,0.5579,0.0344
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",mae,3.7661,0.9262
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",mae,4.4719,0.8705
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 400, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",mae,3.6207,0.9345
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 0.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 50}",mae,3.9038,0.9532
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",mae,3.8237,0.8996
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.03, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",mae,3.7435,0.9413
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 200}",mae,4.4621,0.8738
+7. Freight cost estimate,boosted_median,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 200, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 20}",mae,3.5447,0.9517

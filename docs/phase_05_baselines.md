@@ -1,5 +1,7 @@
 # Phase 5: Baselines
 
+Forecast scores here predate the Black Friday fix. Phase 6 rescored them, and `docs/phase_06_tuning.md` has current numbers.
+
 The code is in `src/models/`. Scores are in `reports/model_comparison.md`, with every fold in `reports/baseline_folds.csv`. The holdout wasn't used, and `evaluate_problem` raises an error if it's given any non-development row.
 
 ## Validation
