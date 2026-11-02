@@ -38,12 +38,13 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phases 0 to 4 are complete. Phase 5 is next. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
+Phases 0 to 5 are complete. Phase 6 is next, and its priorities are in `docs/phase_05_baselines.md`. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
 
 ## Commands
 - Install: `uv sync`
 - Build processed tables: `uv run python -m src.data.make_dataset`
 - Build feature tables: `uv run python -m src.features.make_features`
+- Score baselines: `uv run python -m src.models.run_baselines`
 - Test: `uv run pytest`
 - Lint and format: `uv run ruff check .` and `uv run ruff format .`
 - Add a dependency: `uv add <package>`, never `pip install`
@@ -55,7 +56,7 @@ Import project code from `src` (for example `from src import config`). Take path
 
 Orders purchased from `HOLDOUT_START` in `src/config.py` are the final test period. Study target relationships on earlier orders only, and split by time, never randomly. Follow the rules in `docs/phase_02_eda.md`.
 
-Train only on rows with `period == "development"`. Use the columns in `FEATURES` from `src/features/build.py`, and never use `TARGET_COLUMNS` from `src/data/preprocess.py` as features. Any new history feature must count an outcome only from when it was known, using `past_totals` in `src/features/common.py`. Fit anything learned from data, such as imputation or scaling, inside model pipelines on training rows only.
+Train only on rows with `period == "development"`. Use the columns in `FEATURES` from `src/features/build.py`, and never use `TARGET_COLUMNS` from `src/data/preprocess.py` as features. Any new history feature must count an outcome only from when it was known, using `past_totals` in `src/features/common.py`. Fit anything learned from data, such as imputation or scaling, inside model pipelines on training rows only. Validate with the folds in `src/models/validation.py`, compare each fold with `reports/model_comparison.md`, and keep the holdout for Phase 7.
 
 ## Docs to maintain
 - README

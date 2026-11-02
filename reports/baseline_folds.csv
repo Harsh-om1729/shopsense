@@ -1,0 +1,189 @@
+problem,baseline,fold,metric,value,train_rows,valid_rows
+1. Late delivery risk,Overall rate,2017-09,pr_auc,0.042767732962447846,17902,8628
+1. Late delivery risk,Overall rate,2017-09,recall_at_precision,0.0,17902,8628
+1. Late delivery risk,Rate by same-state route,2017-09,pr_auc,0.04063517903784307,17902,8628
+1. Late delivery risk,Rate by same-state route,2017-09,recall_at_precision,0.0,17902,8628
+1. Late delivery risk,Logistic regression,2017-09,pr_auc,0.09002041156335734,17902,8628
+1. Late delivery risk,Logistic regression,2017-09,recall_at_precision,0.0,17902,8628
+1. Late delivery risk,Overall rate,2017-11,pr_auc,0.102726349503945,26238,12801
+1. Late delivery risk,Overall rate,2017-11,recall_at_precision,0.0,26238,12801
+1. Late delivery risk,Rate by same-state route,2017-11,pr_auc,0.12588764668919844,26238,12801
+1. Late delivery risk,Rate by same-state route,2017-11,recall_at_precision,0.0,26238,12801
+1. Late delivery risk,Logistic regression,2017-11,pr_auc,0.10552218031389725,26238,12801
+1. Late delivery risk,Logistic regression,2017-11,recall_at_precision,0.0,26238,12801
+1. Late delivery risk,Overall rate,2018-01,pr_auc,0.09721712313679419,37834,13619
+1. Late delivery risk,Overall rate,2018-01,recall_at_precision,0.0,37834,13619
+1. Late delivery risk,Rate by same-state route,2018-01,pr_auc,0.11844507435029059,37834,13619
+1. Late delivery risk,Rate by same-state route,2018-01,recall_at_precision,0.0,37834,13619
+1. Late delivery risk,Logistic regression,2018-01,pr_auc,0.15053743704418557,37834,13619
+1. Late delivery risk,Logistic regression,2018-01,recall_at_precision,0.05966767371601209,37834,13619
+1. Late delivery risk,Overall rate,2018-03,pr_auc,0.11312085187076071,49827,13711
+1. Late delivery risk,Overall rate,2018-03,recall_at_precision,0.0,49827,13711
+1. Late delivery risk,Rate by same-state route,2018-03,pr_auc,0.1464897613423727,49827,13711
+1. Late delivery risk,Rate by same-state route,2018-03,recall_at_precision,0.0,49827,13711
+1. Late delivery risk,Logistic regression,2018-03,pr_auc,0.20001728249805156,49827,13711
+1. Late delivery risk,Logistic regression,2018-03,recall_at_precision,0.26370083816892326,49827,13711
+2. Low review risk,Overall rate,2017-09,pr_auc,0.10632554864452529,17651,8521
+2. Low review risk,Overall rate,2017-09,recall_at_precision,0.0,17651,8521
+2. Low review risk,Rate by overdue,2017-09,pr_auc,0.197547566974043,17651,8521
+2. Low review risk,Rate by overdue,2017-09,recall_at_precision,0.2097130242825607,17651,8521
+2. Low review risk,Logistic regression,2017-09,pr_auc,0.3075845412043905,17651,8521
+2. Low review risk,Logistic regression,2017-09,recall_at_precision,0.2693156732891832,17651,8521
+2. Low review risk,Overall rate,2017-11,pr_auc,0.1565732333201737,25831,12665
+2. Low review risk,Overall rate,2017-11,recall_at_precision,0.0,25831,12665
+2. Low review risk,Rate by overdue,2017-11,pr_auc,0.37145584661146425,25831,12665
+2. Low review risk,Rate by overdue,2017-11,recall_at_precision,0.427130610186586,25831,12665
+2. Low review risk,Logistic regression,2017-11,pr_auc,0.4927473630310042,25831,12665
+2. Low review risk,Logistic regression,2017-11,recall_at_precision,0.5537065052950075,25831,12665
+2. Low review risk,Overall rate,2018-01,pr_auc,0.16414141414141414,37447,13464
+2. Low review risk,Overall rate,2018-01,recall_at_precision,0.0,37447,13464
+2. Low review risk,Rate by overdue,2018-01,pr_auc,0.40026921214503414,37447,13464
+2. Low review risk,Rate by overdue,2018-01,recall_at_precision,0.4235294117647059,37447,13464
+2. Low review risk,Logistic regression,2018-01,pr_auc,0.545099332638005,37447,13464
+2. Low review risk,Logistic regression,2018-01,recall_at_precision,0.6049773755656108,37447,13464
+2. Low review risk,Overall rate,2018-03,pr_auc,0.1646765804702952,49213,13651
+2. Low review risk,Overall rate,2018-03,recall_at_precision,0.0,49213,13651
+2. Low review risk,Rate by overdue,2018-03,pr_auc,0.3993448710916757,49213,13651
+2. Low review risk,Rate by overdue,2018-03,recall_at_precision,0.46708185053380785,49213,13651
+2. Low review risk,Logistic regression,2018-03,pr_auc,0.5290696951360617,49213,13651
+2. Low review risk,Logistic regression,2018-03,recall_at_precision,0.6245551601423488,49213,13651
+3. Daily order forecast,Same weekday 4 weeks ago,2017-12-15,mae,141.39285714285714,289,28
+3. Daily order forecast,Same weekday 4 weeks ago,2017-12-15,mase,4.202000812971411,289,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2017-12-15,mae,78.88647959183672,289,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2017-12-15,mase,2.344397433333118,289,28
+3. Daily order forecast,Ridge regression,2017-12-15,mae,97.47704486515963,289,28
+3. Daily order forecast,Ridge regression,2017-12-15,mase,2.896883407311099,289,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-01-12,mae,76.53571428571429,317,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-01-12,mase,2.143276551813137,317,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-01-12,mae,52.820153061224495,317,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-01-12,mase,1.479155144442601,317,28
+3. Daily order forecast,Ridge regression,2018-01-12,mae,26.61122969764878,317,28
+3. Daily order forecast,Ridge regression,2018-01-12,mase,0.7452105877390354,317,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-02-09,mae,35.75,345,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-02-09,mase,1.0307515141175467,345,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-02-09,mae,34.44642857142857,345,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-02-09,mase,0.993166668697676,345,28
+3. Daily order forecast,Ridge regression,2018-02-09,mae,23.910210303147633,345,28
+3. Daily order forecast,Ridge regression,2018-02-09,mase,0.6893842090304444,345,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-03-09,mae,34.25,373,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-03-09,mase,0.9993223852040816,373,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-03-09,mae,35.29719387755102,373,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-03-09,mase,1.02987667085329,373,28
+3. Daily order forecast,Ridge regression,2018-03-09,mae,27.126863477889977,373,28
+3. Daily order forecast,Ridge regression,2018-03-09,mase,0.7914885230315474,373,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-04-06,mae,31.214285714285715,401,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-04-06,mase,0.9015121368881815,401,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-04-06,mae,43.359693877551024,401,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-04-06,mase,1.25228847586535,401,28
+3. Daily order forecast,Ridge regression,2018-04-06,mae,35.90230671797057,401,28
+3. Daily order forecast,Ridge regression,2018-04-06,mase,1.0369087264976107,401,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-05-04,mae,80.75,429,28
+3. Daily order forecast,Same weekday 4 weeks ago,2018-05-04,mase,2.3828053982239004,429,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-05-04,mae,76.08673469387756,429,28
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",2018-05-04,mase,2.2451997790935128,429,28
+3. Daily order forecast,Ridge regression,2018-05-04,mae,84.10235030130812,429,28
+3. Daily order forecast,Ridge regression,2018-05-04,mase,2.4817279789631512,429,28
+4. Delivery time estimate,Olist's promised days,2017-09,mae,11.758414405510054,17902,8628
+4. Delivery time estimate,Olist's promised days,2017-09,share_by_predicted,0.9474965229485396,17902,8628
+4. Delivery time estimate,Overall median,2017-09,mae,5.049793967262058,17902,8628
+4. Delivery time estimate,Overall median,2017-09,share_by_predicted,0.5191237830319889,17902,8628
+4. Delivery time estimate,Median by customer state,2017-09,mae,4.2587308594487805,17902,8628
+4. Delivery time estimate,Median by customer state,2017-09,share_by_predicted,0.5121696801112656,17902,8628
+4. Delivery time estimate,Ridge regression,2017-09,mae,3.916403456849445,17902,8628
+4. Delivery time estimate,Ridge regression,2017-09,share_by_predicted,0.47844228094575797,17902,8628
+4. Delivery time estimate,Olist's promised days,2017-11,mae,11.873074203729743,26238,12801
+4. Delivery time estimate,Olist's promised days,2017-11,share_by_predicted,0.8824310600734318,26238,12801
+4. Delivery time estimate,Overall median,2017-11,mae,7.524891595111927,26238,12801
+4. Delivery time estimate,Overall median,2017-11,share_by_predicted,0.3696586204202797,26238,12801
+4. Delivery time estimate,Median by customer state,2017-11,mae,6.7878991147790835,26238,12801
+4. Delivery time estimate,Median by customer state,2017-11,share_by_predicted,0.34387938442309196,26238,12801
+4. Delivery time estimate,Ridge regression,2017-11,mae,7.287829563699103,26238,12801
+4. Delivery time estimate,Ridge regression,2017-11,share_by_predicted,0.2538082962268573,26238,12801
+4. Delivery time estimate,Olist's promised days,2018-01,mae,12.510776470032335,37834,13619
+4. Delivery time estimate,Olist's promised days,2018-01,share_by_predicted,0.8893457669432411,37834,13619
+4. Delivery time estimate,Overall median,2018-01,mae,7.6618026265559,37834,13619
+4. Delivery time estimate,Overall median,2018-01,share_by_predicted,0.3926866877156913,37834,13619
+4. Delivery time estimate,Median by customer state,2018-01,mae,6.880145165438127,37834,13619
+4. Delivery time estimate,Median by customer state,2018-01,share_by_predicted,0.3628019678390484,37834,13619
+4. Delivery time estimate,Ridge regression,2018-01,mae,6.176098213577834,37834,13619
+4. Delivery time estimate,Ridge regression,2018-01,share_by_predicted,0.4700785667082752,37834,13619
+4. Delivery time estimate,Olist's promised days,2018-03,mae,11.401813341106221,49827,13711
+4. Delivery time estimate,Olist's promised days,2018-03,share_by_predicted,0.8708336372255853,49827,13711
+4. Delivery time estimate,Overall median,2018-03,mae,6.9992993595301956,49827,13711
+4. Delivery time estimate,Overall median,2018-03,share_by_predicted,0.4990153891036394,49827,13711
+4. Delivery time estimate,Median by customer state,2018-03,mae,5.9548180512672975,49827,13711
+4. Delivery time estimate,Median by customer state,2018-03,share_by_predicted,0.4769892786813507,49827,13711
+4. Delivery time estimate,Ridge regression,2018-03,mae,5.574264207131736,49827,13711
+4. Delivery time estimate,Ridge regression,2018-03,share_by_predicted,0.6104587557435636,49827,13711
+5. Category demand forecast,"Mean of 4 weeks, 4 weeks ago",2017-12-15,wape,0.7624755381604696,410,40
+5. Category demand forecast,Ridge regression,2017-12-15,wape,0.567578825286397,410,40
+5. Category demand forecast,"Mean of 4 weeks, 4 weeks ago",2018-01-12,wape,0.3742768373687594,450,40
+5. Category demand forecast,Ridge regression,2018-01-12,wape,0.27764290973778416,450,40
+5. Category demand forecast,"Mean of 4 weeks, 4 weeks ago",2018-02-09,wape,0.27749901613537975,490,40
+5. Category demand forecast,Ridge regression,2018-02-09,wape,0.3198251263161498,490,40
+5. Category demand forecast,"Mean of 4 weeks, 4 weeks ago",2018-03-09,wape,0.18784471786168858,530,40
+5. Category demand forecast,Ridge regression,2018-03-09,wape,0.1714933011918904,530,40
+5. Category demand forecast,"Mean of 4 weeks, 4 weeks ago",2018-04-06,wape,0.22290667248146534,570,40
+5. Category demand forecast,Ridge regression,2018-04-06,wape,0.2194306758888559,570,40
+5. Category demand forecast,"Mean of 4 weeks, 4 weeks ago",2018-05-04,wape,0.3243159843653569,610,40
+5. Category demand forecast,Ridge regression,2018-05-04,wape,0.3495904923110889,610,40
+6. Seller inactivity risk,Overall rate,2017-09,pr_auc,0.2581664910432034,2982,1898
+6. Seller inactivity risk,Overall rate,2017-09,recall_at_precision,0.0,2982,1898
+6. Seller inactivity risk,Overall rate,2017-09,revenue_recall,0.0,2982,1898
+6. Seller inactivity risk,Days since last sale,2017-09,pr_auc,0.5457424506111923,2982,1898
+6. Seller inactivity risk,Days since last sale,2017-09,recall_at_precision,0.42448979591836733,2982,1898
+6. Seller inactivity risk,Days since last sale,2017-09,revenue_recall,0.318785627578779,2982,1898
+6. Seller inactivity risk,Logistic regression,2017-09,pr_auc,0.5558304456126186,2982,1898
+6. Seller inactivity risk,Logistic regression,2017-09,recall_at_precision,0.3877551020408163,2982,1898
+6. Seller inactivity risk,Logistic regression,2017-09,revenue_recall,0.2581018844051899,2982,1898
+6. Seller inactivity risk,Overall rate,2017-11,pr_auc,0.25749023013460703,4750,2303
+6. Seller inactivity risk,Overall rate,2017-11,recall_at_precision,0.0,4750,2303
+6. Seller inactivity risk,Overall rate,2017-11,revenue_recall,0.0,4750,2303
+6. Seller inactivity risk,Days since last sale,2017-11,pr_auc,0.5303523192267903,4750,2303
+6. Seller inactivity risk,Days since last sale,2017-11,recall_at_precision,0.3473861720067454,4750,2303
+6. Seller inactivity risk,Days since last sale,2017-11,revenue_recall,0.23364148057467582,4750,2303
+6. Seller inactivity risk,Logistic regression,2017-11,pr_auc,0.5574247646415339,4750,2303
+6. Seller inactivity risk,Logistic regression,2017-11,recall_at_precision,0.3440134907251265,4750,2303
+6. Seller inactivity risk,Logistic regression,2017-11,revenue_recall,0.22431308738331962,4750,2303
+6. Seller inactivity risk,Overall rate,2018-01,pr_auc,0.2918272937548188,6825,2594
+6. Seller inactivity risk,Overall rate,2018-01,recall_at_precision,0.0,6825,2594
+6. Seller inactivity risk,Overall rate,2018-01,revenue_recall,0.0,6825,2594
+6. Seller inactivity risk,Days since last sale,2018-01,pr_auc,0.5892679614944069,6825,2594
+6. Seller inactivity risk,Days since last sale,2018-01,recall_at_precision,0.5785997357992074,6825,2594
+6. Seller inactivity risk,Days since last sale,2018-01,revenue_recall,0.47646731693596756,6825,2594
+6. Seller inactivity risk,Logistic regression,2018-01,pr_auc,0.6204624795196751,6825,2594
+6. Seller inactivity risk,Logistic regression,2018-01,recall_at_precision,0.6050198150594451,6825,2594
+6. Seller inactivity risk,Logistic regression,2018-01,revenue_recall,0.44881270474462515,6825,2594
+6. Seller inactivity risk,Overall rate,2018-03,pr_auc,0.276218611521418,8046,2708
+6. Seller inactivity risk,Overall rate,2018-03,recall_at_precision,0.0,8046,2708
+6. Seller inactivity risk,Overall rate,2018-03,revenue_recall,0.0,8046,2708
+6. Seller inactivity risk,Days since last sale,2018-03,pr_auc,0.5670437596028493,8046,2708
+6. Seller inactivity risk,Days since last sale,2018-03,recall_at_precision,0.5093582887700535,8046,2708
+6. Seller inactivity risk,Days since last sale,2018-03,revenue_recall,0.35439822380506936,8046,2708
+6. Seller inactivity risk,Logistic regression,2018-03,pr_auc,0.5948997879794589,8046,2708
+6. Seller inactivity risk,Logistic regression,2018-03,recall_at_precision,0.5481283422459893,8046,2708
+6. Seller inactivity risk,Logistic regression,2018-03,revenue_recall,0.33240078090465225,8046,2708
+7. Freight cost estimate,Overall median,2017-09,mae,7.273260584897425,23545,9164
+7. Freight cost estimate,Overall median,2017-09,mape,0.6016089134993864,23545,9164
+7. Freight cost estimate,Median by state pair,2017-09,mae,5.697934308162375,23545,9164
+7. Freight cost estimate,Median by state pair,2017-09,mape,0.5163069071294641,23545,9164
+7. Freight cost estimate,Ridge regression,2017-09,mae,4.602406447289617,23545,9164
+7. Freight cost estimate,Ridge regression,2017-09,mape,0.67932350091357,23545,9164
+7. Freight cost estimate,Overall median,2017-11,mae,6.962413083425211,32709,13605
+7. Freight cost estimate,Overall median,2017-11,mape,0.5528997292790916,32709,13605
+7. Freight cost estimate,Median by state pair,2017-11,mae,5.430746416758544,32709,13605
+7. Freight cost estimate,Median by state pair,2017-11,mape,0.4735637480359116,32709,13605
+7. Freight cost estimate,Ridge regression,2017-11,mae,4.400245985436702,32709,13605
+7. Freight cost estimate,Ridge regression,2017-11,mape,0.5307078312257634,32709,13605
+7. Freight cost estimate,Overall median,2018-01,mae,6.571098755994162,46314,14389
+7. Freight cost estimate,Overall median,2018-01,mape,0.38622281492379745,46314,14389
+7. Freight cost estimate,Median by state pair,2018-01,mae,5.097524150392661,46314,14389
+7. Freight cost estimate,Median by state pair,2018-01,mape,0.30176332938478206,46314,14389
+7. Freight cost estimate,Ridge regression,2018-01,mae,4.248782768638302,46314,14389
+7. Freight cost estimate,Ridge regression,2018-01,mape,0.2991988573078786,46314,14389
+7. Freight cost estimate,Overall median,2018-03,mae,8.643988257782633,60703,14648
+7. Freight cost estimate,Overall median,2018-03,mape,0.7223875584018338,60703,14648
+7. Freight cost estimate,Median by state pair,2018-03,mae,7.1559772665210275,60703,14648
+7. Freight cost estimate,Median by state pair,2018-03,mape,0.5495000104590771,60703,14648
+7. Freight cost estimate,Ridge regression,2018-03,mae,5.8492982696254,60703,14648
+7. Freight cost estimate,Ridge regression,2018-03,mape,0.5200979017092909,60703,14648

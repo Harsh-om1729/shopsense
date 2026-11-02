@@ -53,7 +53,7 @@ All seven problems are final. Phase 3 corrected three rules below, and `docs/pha
 - **Business use:** plan staffing, stock, and logistics capacity.
 - **Target:** orders per day, 28 days ahead. Order count is steadier than revenue, and the same pipeline can forecast revenue later.
 - **Metrics:** MAE and MASE across several forecast start dates.
-- **Baseline:** the same weekday in the previous week.
+- **Baseline:** the same weekday four weeks earlier, the most recent one available 28 days ahead.
 - **Evidence:** 512 days with no gaps, a weekly pattern (lag 7 autocorrelation 0.655), and fewer orders at weekends.
 - **Limit:** 24 November 2017 (1,176 orders) is the only peak of its kind. Treat it as a known holiday event, because yearly seasonality can't be learned from one example.
 
