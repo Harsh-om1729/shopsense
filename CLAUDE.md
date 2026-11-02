@@ -3,7 +3,7 @@
 **Tagline:** Predict problems before they happen.
 
 ## Project
-An end-to-end ML platform that uses e-commerce data to predict delivery delays, estimate customer satisfaction, and forecast sales. It will have seven models in total, each solving one defined business problem. Only three are defined so far. The other four will be chosen after EDA, based on what the data supports.
+An end-to-end ML platform that uses e-commerce data to predict delivery delays, estimate customer satisfaction, and forecast sales. It has seven models in total, each solving one defined business problem: late delivery risk, low review risk, daily order forecast, delivery time estimate, category demand forecast, seller inactivity risk, and freight cost estimate. Definitions are in `docs/phase_02_eda.md`.
 
 Solo project with one developer, so there's no team review or PR process.
 
@@ -38,10 +38,11 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phases 0 and 1 are complete. Phase 2 EDA is done, and the four proposed problems in `docs/phase_02_eda.md` await approval. Phase 3 is next. The dataset is Olist, in `data/raw/olist/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
+Phases 0 to 3 are complete. Phase 4 is next. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
 
 ## Commands
 - Install: `uv sync`
+- Build processed tables: `uv run python -m src.data.make_dataset`
 - Test: `uv run pytest`
 - Lint and format: `uv run ruff check .` and `uv run ruff format .`
 - Add a dependency: `uv add <package>`, never `pip install`
@@ -52,6 +53,8 @@ Phases 0 and 1 are complete. Phase 2 EDA is done, and the four proposed problems
 Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`. Load raw data with `src/data/load.py`.
 
 Orders purchased from `HOLDOUT_START` in `src/config.py` are the final test period. Study target relationships on earlier orders only, and split by time, never randomly. Follow the rules in `docs/phase_02_eda.md`.
+
+Train only on rows with `period == "development"`. Never use `TARGET_COLUMNS` from `src/data/preprocess.py` as features. Fit anything learned from data, such as imputation or scaling, inside model pipelines on training rows only.
 
 ## Docs to maintain
 - README

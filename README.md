@@ -15,6 +15,7 @@ uv sync
 ## Commands
 
 ```bash
+uv run python -m src.data.make_dataset  # build the tables in data/processed/
 uv run pytest                 # run the tests
 uv run ruff check .           # lint
 uv run ruff format .          # format

@@ -14,6 +14,16 @@ REPORTS_DIR = PROJECT_ROOT / "reports"
 # Pass this to every split, CV, and model so runs stay comparable.
 RANDOM_SEED = 42
 
+# First and last order dates used. Orders fade out after the last date,
+# which looks like an extraction cut-off rather than real demand.
+FIRST_ORDER_DATE = "2017-01-01"
+LAST_ORDER_DATE = "2018-08-21"
+
 # Orders purchased on or after this date are the final test period.
 # Study feature and target relationships on earlier orders only.
 HOLDOUT_START = "2018-06-01"
+
+# Rows this close to the holdout are excluded from training, because their
+# outcomes may not be known yet. Dropping only unfinished orders would remove
+# slow deliveries and bias the training data.
+EMBARGO_DAYS = 30
