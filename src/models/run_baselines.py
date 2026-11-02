@@ -28,14 +28,12 @@ def summarise(results: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def write_report(summary: pd.DataFrame) -> None:
-    """Write reports/model_comparison.md."""
-    lines = [
-        "# Model comparison",
-        "",
-        "Baseline scores from time-based validation on development rows.",
-        "The holdout hasn't been used. See `docs/phase_05_baselines.md`.",
-    ]
+def write_report(summary: pd.DataFrame, holdout_lines: list[str] | None = None) -> None:
+    """Write reports/model_comparison.md, with final results first if they exist."""
+    lines = ["# Model comparison", ""]
+    if holdout_lines:
+        lines += holdout_lines + [""]
+    lines += ["Scores below come from time-based validation on development rows."]
     for problem in PROBLEMS:
         lines += ["", f"## {problem.name}", ""]
         lines += [

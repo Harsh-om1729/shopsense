@@ -1,0 +1,121 @@
+[
+  {
+    "name": "low_review_risk",
+    "problem": "2. Low review risk",
+    "status": "active",
+    "kind": "ranking",
+    "version": "1.0.0",
+    "training_data": {
+      "rows": 94600,
+      "first": "2017-01-05",
+      "last": "2018-08-21"
+    },
+    "source": {
+      "commit": "5d3d1a1",
+      "dirty": true
+    },
+    "verdict": "Ready for ranking only",
+    "note": "Use the ranking, such as a top-N queue. The fixed alert missed its target."
+  },
+  {
+    "name": "seller_inactivity_risk",
+    "problem": "6. Seller inactivity risk",
+    "status": "active",
+    "kind": "alert",
+    "version": "1.0.0",
+    "training_data": {
+      "rows": 16390,
+      "first": "2017-04-01",
+      "last": "2018-06-01"
+    },
+    "source": {
+      "commit": "5d3d1a1",
+      "dirty": true
+    },
+    "verdict": "Ready",
+    "note": "Days since last sale caught more at-risk revenue on the holdout."
+  },
+  {
+    "name": "freight_cost",
+    "problem": "7. Freight cost estimate",
+    "status": "active",
+    "kind": "regression",
+    "version": "1.0.0",
+    "training_data": {
+      "rows": 101367,
+      "first": "2017-01-05",
+      "last": "2018-08-21"
+    },
+    "source": {
+      "commit": "5d3d1a1",
+      "dirty": true
+    },
+    "verdict": "Ready",
+    "note": "Freight rose during the holdout, and the cause is unclear."
+  },
+  {
+    "name": "daily_orders_rule",
+    "problem": "3. Daily order forecast",
+    "status": "active",
+    "kind": "daily_rule",
+    "version": "1.0.0",
+    "training_data": {
+      "rows": 594,
+      "first": "2017-01-05",
+      "last": "2018-08-21"
+    },
+    "source": {
+      "commit": "5d3d1a1",
+      "dirty": true
+    },
+    "verdict": "Use the simple rule",
+    "note": "The tuned model had lower error, but 12 weeks couldn't rule out luck."
+  },
+  {
+    "name": "delivery_time_rule",
+    "problem": "4. Delivery time estimate",
+    "status": "active",
+    "kind": "group_median",
+    "version": "1.0.0",
+    "training_data": {
+      "rows": 95522,
+      "first": "2017-01-05",
+      "last": "2018-08-21"
+    },
+    "source": {
+      "commit": "5d3d1a1",
+      "dirty": true
+    },
+    "verdict": "Use the simple rule",
+    "note": "For estimates only. Keep Olist's promises for customers."
+  },
+  {
+    "name": "category_demand_rule",
+    "problem": "5. Category demand forecast",
+    "status": "active",
+    "kind": "weekly_rule",
+    "version": "1.0.0",
+    "training_data": {
+      "rows": 840,
+      "first": "2017-01-15",
+      "last": "2018-08-19"
+    },
+    "source": {
+      "commit": "5d3d1a1",
+      "dirty": true
+    },
+    "verdict": "Use the simple rule",
+    "note": "Covers the top 10 categories only."
+  },
+  {
+    "name": "late_delivery_risk",
+    "problem": "1. Late delivery risk",
+    "status": "held",
+    "kind": null,
+    "version": "1.0.0",
+    "training_data": null,
+    "source": null,
+    "verdict": "Ready for ranking only",
+    "note": "On the holdout it was 1.15 times a constant score, and its ranking didn't work. Retrain and test it on newer data first."
+  }
+]

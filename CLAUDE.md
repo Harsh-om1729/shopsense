@@ -3,7 +3,7 @@
 **Tagline:** Predict problems before they happen.
 
 ## Project
-An end-to-end ML platform that uses e-commerce data to predict delivery delays, estimate customer satisfaction, and forecast sales. It has seven models in total, each solving one defined business problem: late delivery risk, low review risk, daily order forecast, delivery time estimate, category demand forecast, seller inactivity risk, and freight cost estimate. Definitions are in `docs/phase_02_eda.md`.
+An end-to-end ML platform that uses e-commerce data to predict delivery delays, estimate customer satisfaction, and forecast sales. It covers seven business problems: late delivery risk, low review risk, daily order forecast, delivery time estimate, category demand forecast, seller inactivity risk, and freight cost estimate. Definitions are in `docs/phase_02_eda.md`. After holdout testing, three use trained models, three use simple rules, and late delivery is held.
 
 Solo project with one developer, so there's no team review or PR process.
 
@@ -38,7 +38,7 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phases 0 to 6 are complete. Phase 7 is next, and tuned settings are in `reports/tuned_models.json`. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
+Phases 0 to 8 are complete. Phase 9 is next, and it should use `load_predictor` from `src/models/predictor.py`. See known gaps in `docs/phase_08_packaging.md`. The holdout has been used, so don't tune against it or quote it as an unbiased test of anything changed afterwards. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
 
 ## Commands
 - Install: `uv sync`
@@ -46,6 +46,8 @@ Phases 0 to 6 are complete. Phase 7 is next, and tuned settings are in `reports/
 - Build feature tables: `uv run python -m src.features.make_features`
 - Score baselines: `uv run python -m src.models.run_baselines`
 - Tune models (about 6 minutes): `uv run python -m src.models.tune`
+- Holdout test (already run, and refuses to repeat without `--confirm-rerun`): `uv run python -m src.models.evaluate`
+- Package models: `uv run python -m src.models.package`
 - Test: `uv run pytest`
 - Lint and format: `uv run ruff check .` and `uv run ruff format .`
 - Add a dependency: `uv add <package>`, never `pip install`

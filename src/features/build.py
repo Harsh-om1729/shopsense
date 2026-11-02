@@ -240,14 +240,27 @@ def add_calendar_flags(table, date_column, years) -> pd.DataFrame:
     return table
 
 
+def daily_lag_input(table) -> pd.Series:
+    """Return daily orders for lags, with the peak replaced by the week before it.
+
+    The surge would otherwise echo through lags for weeks. The target keeps the
+    real value, and serving uses this same function so the two can't drift apart.
+    """
+    return table["orders"].where(table["is_peak_window"] == 0, table["orders"].shift(7))
+
+
+def weekly_lag_input(table) -> pd.Series:
+    """Return weekly items for lags, with peak weeks replaced by the last normal week."""
+    normal_items = table["items"].where(table["is_peak_week"] == 0)
+    return normal_items.groupby(table["category"]).ffill()
+
+
 def build_daily_features(daily_orders) -> pd.DataFrame:
     """Return features for problem 3, with every lag at least 28 days old."""
     table = daily_orders.sort_values("date").reset_index(drop=True)
     table = add_calendar_flags(table, "date", sorted(table["date"].dt.year.unique()))
 
-    # The surge would otherwise echo through lags for weeks, so lags see the
-    # week before it instead. The target keeps the real value.
-    orders = table["orders"].where(table["is_peak_window"] == 0, table["orders"].shift(7))
+    orders = daily_lag_input(table)
     table["lag_28"] = orders.shift(DAILY_HORIZON)
     table["lag_35"] = orders.shift(DAILY_HORIZON + 7)
     table["lag_42"] = orders.shift(DAILY_HORIZON + 14)
@@ -270,9 +283,7 @@ def build_weekly_features(weekly_category) -> pd.DataFrame:
     table["has_holiday"] = week_contains(brazil_holidays(years))
     table["is_peak_week"] = week_contains(peak_window_days(years))
 
-    # As with daily lags, peak weeks are replaced by the last normal week.
-    normal_items = table["items"].where(table["is_peak_week"] == 0)
-    by_category = normal_items.groupby(table["category"]).ffill().groupby(table["category"])
+    by_category = weekly_lag_input(table).groupby(table["category"])
 
     table["lag_4"] = by_category.shift(WEEKLY_HORIZON)
     table["lag_5"] = by_category.shift(WEEKLY_HORIZON + 1)

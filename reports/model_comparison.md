@@ -1,7 +1,32 @@
 # Model comparison
 
-Baseline scores from time-based validation on development rows.
-The holdout hasn't been used. See `docs/phase_05_baselines.md`.
+## Final holdout results
+
+Orders from 2018-06-01 to 2018-08-21. Rules are in `docs/phase_07_evaluation.md`.
+
+| Problem | Metric | Simple rule | Tuned | Improvement (95% interval) | Verdict |
+|---|---|---:|---:|---|---|
+| 1. Late delivery risk | `pr_auc` | 0.0322 | 0.0427 | 0.0104 (0.0068 to 0.0162) | Ready for ranking only |
+| 2. Low review risk | `pr_auc` | 0.1626 | 0.3141 | 0.1515 (0.1385 to 0.1663) | Ready for ranking only |
+| 3. Daily order forecast | `mae` | 57.4699 | 44.7316 | 12.7383 (-2.6520 to 25.7639) | Use the simple rule |
+| 4. Delivery time estimate | `mae` | 4.4667 | 5.7542 | -1.2874 (-1.3408 to -1.2300) | Use the simple rule |
+| 5. Category demand forecast | `wape` | 0.2685 | 0.3303 | -0.0617 (-0.1446 to -0.0013) | Use the simple rule |
+| 6. Seller inactivity risk | `pr_auc` | 0.5685 | 0.6085 | 0.0399 (0.0138 to 0.0637) | Ready |
+| 7. Freight cost estimate | `mae` | 8.1997 | 5.6130 | 2.5867 (2.4665 to 2.6983) | Ready |
+
+| Alert | Target precision | Precision | Recall | Rows flagged | Actual rate |
+|---|---:|---:|---:|---:|---:|
+| 1. Late delivery risk | 25% | 3.9% | 52.5% | 50.1% | 3.7% |
+| 2. Low review risk | 50% | 32.8% | 38.1% | 11.3% | 9.8% |
+| 6. Seller inactivity risk | 60% | 59.5% | 52.1% | 24.6% | 28.2% |
+
+| Promise | Mean days promised | Arrived by promise |
+|---|---:|---:|
+| Olist's promised days | 21.1 | 94.5% |
+| Tuned 90th percentile promise | 23.9 | 97.9% |
+| Tuned promise with margin | 28.2 | 99.1% |
+
+Scores below come from time-based validation on development rows.
 
 ## 1. Late delivery risk
 

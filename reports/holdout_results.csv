@@ -1,0 +1,69 @@
+problem,baseline,fold,metric,value,train_rows,valid_rows
+1. Late delivery risk,Overall rate,holdout,pr_auc,0.0372168284789644,71001,17922
+1. Late delivery risk,Overall rate,holdout,recall_at_precision,0.0,71001,17922
+1. Late delivery risk,Rate by same-state route,holdout,pr_auc,0.032234463415184,71001,17922
+1. Late delivery risk,Rate by same-state route,holdout,recall_at_precision,0.0,71001,17922
+1. Late delivery risk,Logistic regression,holdout,pr_auc,0.07290402090587239,71001,17922
+1. Late delivery risk,Logistic regression,holdout,recall_at_precision,0.005997001499250375,71001,17922
+1. Late delivery risk,Tuned model,holdout,pr_auc,0.04266221010721123,71001,17922
+1. Late delivery risk,Tuned model,holdout,recall_at_precision,0.0,71001,17922
+2. Low review risk,Overall rate,holdout,pr_auc,0.09764441951766685,70275,17830
+2. Low review risk,Overall rate,holdout,recall_at_precision,0.0,70275,17830
+2. Low review risk,Rate by overdue,holdout,pr_auc,0.16261512449297516,70275,17830
+2. Low review risk,Rate by overdue,holdout,recall_at_precision,0.0,70275,17830
+2. Low review risk,Logistic regression,holdout,pr_auc,0.2901068189859351,70275,17830
+2. Low review risk,Logistic regression,holdout,recall_at_precision,0.17748420448018382,70275,17830
+2. Low review risk,Tuned model,holdout,pr_auc,0.3141364031017414,70275,17830
+2. Low review risk,Tuned model,holdout,recall_at_precision,0.1860999425617461,70275,17830
+3. Daily order forecast,Same weekday 4 weeks ago,holdout,mae,67.51219512195122,457,82
+3. Daily order forecast,Same weekday 4 weeks ago,holdout,mase,1.9052105734904083,457,82
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",holdout,mae,57.46994773519163,457,82
+3. Daily order forecast,"Mean of 28 days, 4 weeks ago",holdout,mase,1.6218159087442767,457,82
+3. Daily order forecast,Ridge regression,holdout,mae,52.89863231075517,457,82
+3. Daily order forecast,Ridge regression,holdout,mase,1.4928122751686836,457,82
+3. Daily order forecast,Tuned model,holdout,mae,44.73160517248835,457,82
+3. Daily order forecast,Tuned model,holdout,mase,1.262336782115876,457,82
+4. Delivery time estimate,Olist's promised days,holdout,mae,12.906025622992845,71001,17922
+4. Delivery time estimate,Olist's promised days,holdout,share_by_predicted,0.9451512108023659,71001,17922
+4. Delivery time estimate,Olist's promised days,holdout,mean_predicted,21.122826181327937,71001,17922
+4. Delivery time estimate,Overall median,holdout,mae,4.9471474589476205,71001,17922
+4. Delivery time estimate,Overall median,holdout,share_by_predicted,0.7768664211583529,71001,17922
+4. Delivery time estimate,Overall median,holdout,mean_predicted,11.281006944444446,71001,17922
+4. Delivery time estimate,Median by customer state,holdout,mae,4.4667476629049965,71001,17922
+4. Delivery time estimate,Median by customer state,holdout,share_by_predicted,0.7883606740319161,71001,17922
+4. Delivery time estimate,Median by customer state,holdout,mean_predicted,11.27603098606048,71001,17922
+4. Delivery time estimate,Ridge regression,holdout,mae,5.395279968592294,71001,17922
+4. Delivery time estimate,Ridge regression,holdout,share_by_predicted,0.8337797120857047,71001,17922
+4. Delivery time estimate,Ridge regression,holdout,mean_predicted,12.831840684786068,71001,17922
+4. Delivery time estimate,Tuned model,holdout,mae,5.754196026126196,71001,17922
+4. Delivery time estimate,Tuned model,holdout,share_by_predicted,0.8457203437116393,71001,17922
+4. Delivery time estimate,Tuned model,holdout,mean_predicted,13.181435135028053,71001,17922
+4. Delivery time estimate,Tuned 90th percentile promise,holdout,mae,15.475579746471178,71001,17922
+4. Delivery time estimate,Tuned 90th percentile promise,holdout,share_by_predicted,0.9785738198861734,71001,17922
+4. Delivery time estimate,Tuned 90th percentile promise,holdout,mean_predicted,23.946343399749285,71001,17922
+4. Delivery time estimate,Tuned promise with margin,holdout,mae,19.62231400749587,71001,17922
+4. Delivery time estimate,Tuned promise with margin,holdout,share_by_predicted,0.9906818435442473,71001,17922
+4. Delivery time estimate,Tuned promise with margin,holdout,mean_predicted,28.213256151168896,71001,17922
+5. Category demand forecast,"Mean of 4 weeks, 4 weeks ago",holdout,wape,0.2685404867595286,650,120
+5. Category demand forecast,Ridge regression,holdout,wape,0.3286355563484348,650,120
+5. Category demand forecast,Tuned model,holdout,wape,0.3302784931324266,650,120
+6. Seller inactivity risk,Overall rate,holdout,pr_auc,0.28167202572347266,13348,1555
+6. Seller inactivity risk,Overall rate,holdout,recall_at_precision,0.0,13348,1555
+6. Seller inactivity risk,Overall rate,holdout,revenue_recall,0.0,13348,1555
+6. Seller inactivity risk,Days since last sale,holdout,pr_auc,0.568536786295588,13348,1555
+6. Seller inactivity risk,Days since last sale,holdout,recall_at_precision,0.4406392694063927,13348,1555
+6. Seller inactivity risk,Days since last sale,holdout,revenue_recall,0.3394202529344254,13348,1555
+6. Seller inactivity risk,Logistic regression,holdout,pr_auc,0.5942093266240378,13348,1555
+6. Seller inactivity risk,Logistic regression,holdout,recall_at_precision,0.4680365296803653,13348,1555
+6. Seller inactivity risk,Logistic regression,holdout,revenue_recall,0.27809007627295285,13348,1555
+6. Seller inactivity risk,Tuned model,holdout,pr_auc,0.6084549992225836,13348,1555
+6. Seller inactivity risk,Tuned model,holdout,recall_at_precision,0.4863013698630137,13348,1555
+6. Seller inactivity risk,Tuned model,holdout,revenue_recall,0.243067894044535,13348,1555
+7. Freight cost estimate,Overall median,holdout,mae,10.016910947669189,82468,18899
+7. Freight cost estimate,Overall median,holdout,mape,0.5641054882792708,82468,18899
+7. Freight cost estimate,Median by state pair,holdout,mae,8.199675908778241,82468,18899
+7. Freight cost estimate,Median by state pair,holdout,mape,0.44584809312437396,82468,18899
+7. Freight cost estimate,Ridge regression,holdout,mae,6.056890378445832,82468,18899
+7. Freight cost estimate,Ridge regression,holdout,mape,0.4060799936298151,82468,18899
+7. Freight cost estimate,Tuned model,holdout,mae,5.61299545184776,82468,18899
+7. Freight cost estimate,Tuned model,holdout,mape,0.3496925186751868,82468,18899

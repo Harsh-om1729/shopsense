@@ -1,0 +1,39 @@
+problem,month,model,metric,value,rows,actual_mean
+1. Late delivery risk,2018-06,Rate by same-state route,pr_auc,0.013767174893175287,6096,0.011646981627296589
+1. Late delivery risk,2018-06,Tuned model,pr_auc,0.055777803224563646,6096,0.011646981627296589
+1. Late delivery risk,2018-07,Rate by same-state route,pr_auc,0.031456484846591866,6156,0.03378817413905133
+1. Late delivery risk,2018-07,Tuned model,pr_auc,0.03857558674690847,6156,0.03378817413905133
+1. Late delivery risk,2018-08,Rate by same-state route,pr_auc,0.058566373403205876,5670,0.06843033509700176
+1. Late delivery risk,2018-08,Tuned model,pr_auc,0.05559797768538757,5670,0.06843033509700176
+2. Low review risk,2018-06,Rate by overdue,pr_auc,0.13556852208256678,6068,0.0995385629531971
+2. Low review risk,2018-06,Tuned model,pr_auc,0.29027030151970845,6068,0.0995385629531971
+2. Low review risk,2018-07,Rate by overdue,pr_auc,0.16492299703580315,6113,0.09667920824472435
+2. Low review risk,2018-07,Tuned model,pr_auc,0.2922786285824031,6113,0.09667920824472435
+2. Low review risk,2018-08,Rate by overdue,pr_auc,0.19446593320590583,5649,0.09665427509293681
+2. Low review risk,2018-08,Tuned model,pr_auc,0.364973812179526,5649,0.09665427509293681
+3. Daily order forecast,2018-06,"Mean of 28 days, 4 weeks ago",mae,44.30595238095238,30,205.56666666666666
+3. Daily order forecast,2018-06,Tuned model,mae,43.282540792811915,30,205.56666666666666
+3. Daily order forecast,2018-07,"Mean of 28 days, 4 weeks ago",mae,50.27880184331798,31,202.96774193548387
+3. Daily order forecast,2018-07,Tuned model,mae,43.49591491710916,31,202.96774193548387
+3. Daily order forecast,2018-08,"Mean of 28 days, 4 weeks ago",mae,86.89115646258504,21,276.6666666666667
+3. Daily order forecast,2018-08,Tuned model,mae,48.625811329966844,21,276.6666666666667
+4. Delivery time estimate,2018-06,Median by customer state,mae,4.337481730392425,6096,9.239216293167347
+4. Delivery time estimate,2018-06,Tuned model,mae,5.90966437228397,6096,9.239216293167347
+4. Delivery time estimate,2018-07,Median by customer state,mae,4.786811356693559,6156,8.958636237154957
+4. Delivery time estimate,2018-07,Tuned model,mae,5.472209570695273,6156,8.958636237154957
+4. Delivery time estimate,2018-08,Median by customer state,mae,4.258227914339605,5670,8.099500102064145
+4. Delivery time estimate,2018-08,Tuned model,mae,5.893203712449822,5670,8.099500102064145
+5. Category demand forecast,2018-06,"Mean of 4 weeks, 4 weeks ago",wape,0.3222511144130758,40,100.95
+5. Category demand forecast,2018-06,Tuned model,wape,0.4139968566584536,40,100.95
+5. Category demand forecast,2018-07,"Mean of 4 weeks, 4 weeks ago",wape,0.20119724025974026,50,98.56
+5. Category demand forecast,2018-07,Tuned model,wape,0.3512119002238121,50,98.56
+5. Category demand forecast,2018-08,"Mean of 4 weeks, 4 weeks ago",wape,0.2965853658536585,30,136.66666666666666
+5. Category demand forecast,2018-08,Tuned model,wape,0.2226651804337815,30,136.66666666666666
+6. Seller inactivity risk,2018-06,Days since last sale,pr_auc,0.568536786295588,1555,0.28167202572347266
+6. Seller inactivity risk,2018-06,Tuned model,pr_auc,0.6084549992225836,1555,0.28167202572347266
+7. Freight cost estimate,2018-06,Median by state pair,mae,8.228119925046846,6404,22.597831043098065
+7. Freight cost estimate,2018-06,Tuned model,mae,5.629485486207188,6404,22.597831043098065
+7. Freight cost estimate,2018-07,Median by state pair,mae,8.603766943930992,6492,23.043037584719656
+7. Freight cost estimate,2018-07,Tuned model,mae,5.828020030763226,6492,23.043037584719656
+7. Freight cost estimate,2018-08,Median by state pair,mae,7.732323838080959,6003,21.434622688655672
+7. Freight cost estimate,2018-08,Tuned model,mae,5.362863560067488,6003,21.434622688655672

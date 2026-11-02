@@ -1,5 +1,7 @@
 # Phase 6: Training and tuning
 
+Holdout results changed several conclusions here. See `docs/phase_07_evaluation.md` for final results.
+
 The code is in `src/models/tuned.py` and `src/models/tune.py`. Chosen settings are in `reports/tuned_models.json`, every trial is in `reports/tuning_results.csv`, and fold scores are in `reports/tuned_folds.csv`. `reports/model_comparison.md` shows baselines and tuned models together. Final models are trained in Phase 7, and the holdout hasn't been used.
 
 ## Changes
