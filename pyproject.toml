@@ -3,6 +3,7 @@ name = "shopsense"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
+    "fastapi>=0.162.0",
     "holidays>=0.107",
     "ipykernel>=7.4.0",
     "joblib>=1.6.0",
@@ -11,10 +12,13 @@ dependencies = [
     "pandas>=3.1.0",
     "pyarrow>=26.0.0",
     "scikit-learn>=1.9.1",
+    "sqlalchemy>=2.1.6",
+    "uvicorn>=0.54.0",
 ]
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28.1",
     "nbconvert>=7.17.2",
     "nbformat>=5.11.1",
     "pytest>=9.2.0",

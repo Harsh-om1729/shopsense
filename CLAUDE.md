@@ -38,7 +38,7 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phases 0 to 8 are complete. Phase 9 is next, and it should use `load_predictor` from `src/models/predictor.py`. See known gaps in `docs/phase_08_packaging.md`. The holdout has been used, so don't tune against it or quote it as an unbiased test of anything changed afterwards. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend, database, and frontend stacks are not confirmed.
+Phases 0 to 10 are complete. Phase 11 is next. See known gaps in `docs/phase_08_packaging.md`, `docs/phase_09_api.md`, and `docs/phase_10_database.md`. The holdout has been used, so don't tune against it or quote it as an unbiased test of anything changed afterwards. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend is FastAPI, and the database is SQLite through SQLAlchemy, at `data/processed/shopsense.db`. The frontend stack is not confirmed.
 
 ## Commands
 - Install: `uv sync`
@@ -48,14 +48,16 @@ Phases 0 to 8 are complete. Phase 9 is next, and it should use `load_predictor` 
 - Tune models (about 6 minutes): `uv run python -m src.models.tune`
 - Holdout test (already run, and refuses to repeat without `--confirm-rerun`): `uv run python -m src.models.evaluate`
 - Package models: `uv run python -m src.models.package`
+- Load the database: `uv run python -m src.db.load`
+- Run the API: `uv run uvicorn api.main:app --reload`
 - Test: `uv run pytest`
 - Lint and format: `uv run ruff check .` and `uv run ruff format .`
 - Add a dependency: `uv add <package>`, never `pip install`
 
 ## Structure
-`data/raw/` (read-only), `data/processed/`, `notebooks/`, `src/{data,features,models}/`, `models/`, `tests/`, `docs/`, `reports/`. `api/` and `frontend/` are planned for Phases 9 and 11.
+`data/raw/` (read-only), `data/processed/`, `notebooks/`, `src/{data,features,models,db}/`, `models/`, `api/`, `tests/`, `docs/`, `reports/`. `frontend/` is planned for Phase 11.
 
-Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`. Load raw data with `src/data/load.py`.
+Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`. Load raw data with `src/data/load.py`. The API reads through `Store` in `src/db/store.py`. Keep targets out of the database, and never let prediction logging break a prediction.
 
 Orders purchased from `HOLDOUT_START` in `src/config.py` are the final test period. Study target relationships on earlier orders only, and split by time, never randomly. Follow the rules in `docs/phase_02_eda.md`.
 

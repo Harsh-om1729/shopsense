@@ -15,4 +15,8 @@
 - **Reviews:** late orders are often reviewed before they arrive, so a review may not reflect the final delivery.
 - **Sellers:** there are no account records, so inactivity can't confirm a seller has left. The holdout has only one seller snapshot, so that test is thin.
 - **Freight:** the data doesn't show how freight is calculated.
+- **API scores:** queue endpoints score rows the final models trained on, so those scores are optimistic.
+- **API security:** there's no authentication, so run it locally only.
+- **Missing freight inputs:** estimates without dimensions or distance are weak, because training data almost always had them.
+- **Monitoring:** predictions are logged, but they can't be compared with outcomes until new data arrives.
 - **Licence:** not stated in the data files. Check it before deploying publicly.

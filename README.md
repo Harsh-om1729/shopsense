@@ -21,6 +21,8 @@ uv run python -m src.models.run_baselines  # score baselines in reports/model_co
 uv run python -m src.models.tune  # tune models, about 6 minutes
 uv run python -m src.models.evaluate  # one-time holdout test, already run
 uv run python -m src.models.package  # build the packages in models/
+uv run python -m src.db.load  # load the database
+uv run uvicorn api.main:app --reload  # run the API, with docs at http://127.0.0.1:8000/docs
 uv run pytest                 # run the tests
 uv run ruff check .           # lint
 uv run ruff format .          # format

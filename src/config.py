@@ -9,6 +9,7 @@ DATA_RAW_DIR = PROJECT_ROOT / "data" / "raw"
 OLIST_DIR = DATA_RAW_DIR / "olist"
 DATA_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 FEATURES_DIR = DATA_PROCESSED_DIR / "features"
+DATABASE_PATH = DATA_PROCESSED_DIR / "shopsense.db"
 MODELS_DIR = PROJECT_ROOT / "models"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
