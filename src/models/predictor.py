@@ -108,6 +108,13 @@ class DailyOrderRule:
         self.metadata = metadata
         self.history = pd.Series(rule["orders"], index=pd.to_datetime(rule["dates"]), dtype=float)
 
+    def data_end(self) -> pd.Timestamp:
+        return self.history.index.max()
+
+    def latest_date(self) -> pd.Timestamp:
+        """Return the last date the rule can forecast."""
+        return self.data_end() + pd.Timedelta(days=DAILY_LAG_DAYS)
+
     def forecast_one(self, date: pd.Timestamp) -> float:
         end = date - pd.Timedelta(days=DAILY_LAG_DAYS)
         start = end - pd.Timedelta(days=DAILY_WINDOW_DAYS - 1)
@@ -135,6 +142,14 @@ class WeeklyCategoryRule:
             category: pd.Series(items, index=weeks, dtype=float)
             for category, items in rule["items"].items()
         }
+
+    def categories(self) -> list[str]:
+        return sorted(self.history)
+
+    def latest_week_end(self) -> pd.Timestamp:
+        """Return the last week end the rule can forecast."""
+        data_end = max(series.index.max() for series in self.history.values())
+        return data_end + pd.Timedelta(weeks=WEEKLY_LAG_WEEKS)
 
     def forecast_one(self, week_end: pd.Timestamp, category: str) -> float:
         if category not in self.history:

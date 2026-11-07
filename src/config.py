@@ -1,5 +1,6 @@
 """Shared project paths and constants."""
 
+import os
 from pathlib import Path
 
 # Resolved from this file, so paths work from notebooks/, tests/, or the root.
@@ -10,6 +11,16 @@ OLIST_DIR = DATA_RAW_DIR / "olist"
 DATA_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 FEATURES_DIR = DATA_PROCESSED_DIR / "features"
 DATABASE_PATH = DATA_PROCESSED_DIR / "shopsense.db"
+
+# Browser addresses allowed to call the API, separated by commas. The defaults
+# are the Vite dev server. Set SHOPSENSE_CORS_ORIGINS for a deployed site.
+CORS_ORIGINS = [
+    origin.strip()
+    for origin in os.environ.get(
+        "SHOPSENSE_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173"
+    ).split(",")
+    if origin.strip()
+]
 MODELS_DIR = PROJECT_ROOT / "models"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 

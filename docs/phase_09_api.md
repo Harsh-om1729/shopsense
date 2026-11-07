@@ -54,7 +54,7 @@ Requests with unknown fields are rejected, so a misspelled field can't be silent
 - **Queue scores are optimistic.** The final models trained on those rows, so don't read them as evidence of performance.
 - **The review queue window is short and historic.** It covers the last 7 days of stored data, which ends in August 2018.
 - **There's no authentication.** Run it locally only until that's added.
-- **There's no CORS yet.** The frontend will need it in Phase 11.
+- **CORS is limited to listed addresses.** Phase 11 added it, set through `SHOPSENSE_CORS_ORIGINS`.
 - **A test warning remains.** `TestClient` warns that Starlette is moving away from `httpx`. It doesn't affect behaviour.
 
 ## Verify

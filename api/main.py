@@ -9,6 +9,7 @@ from contextlib import asynccontextmanager
 from datetime import date
 
 from fastapi import FastAPI, Query, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from api.schemas import (
@@ -16,6 +17,7 @@ from api.schemas import (
     DailyForecast,
     DeliveryRequest,
     DeliveryResponse,
+    ForecastOptions,
     FreightRequest,
     FreightResponse,
     Health,
@@ -24,13 +26,14 @@ from api.schemas import (
     SellerRiskList,
 )
 from api.services import LATE_DELIVERY, Services
+from src import config
 from src.models.predictor import InvalidInputError, ModelNotAvailableError
 
 MAX_FORECAST_DAYS = 28
 MAX_LIST_ROWS = 100
 
 
-def create_app(services: Services | None = None) -> FastAPI:
+def create_app(services: Services | None = None, cors_origins: list[str] | None = None) -> FastAPI:
     """Return the app. Tests pass fake services, and real ones load at startup."""
 
     @asynccontextmanager
@@ -43,6 +46,14 @@ def create_app(services: Services | None = None) -> FastAPI:
         description="Predict problems before they happen.",
         version="1.0.0",
         lifespan=lifespan,
+    )
+
+    # Browsers block calls from another address unless the API allows it.
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=config.CORS_ORIGINS if cors_origins is None else cors_origins,
+        allow_methods=["GET", "POST"],
+        allow_headers=["Content-Type"],
     )
 
     @app.exception_handler(InvalidInputError)
@@ -101,6 +112,11 @@ def create_app(services: Services | None = None) -> FastAPI:
     ):
         """Forecast daily orders with a simple rule."""
         return get_services(request).daily_forecast(start, days)
+
+    @app.get("/forecast/options", response_model=ForecastOptions, tags=["Forecasts"])
+    def forecast_options(request: Request):
+        """Return the forecastable date range and categories."""
+        return get_services(request).forecast_options()
 
     @app.get("/forecast/category", response_model=CategoryForecast, tags=["Forecasts"])
     def forecast_category(request: Request, week_end: date, category: str):

@@ -38,7 +38,7 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phases 0 to 10 are complete. Phase 11 is next. See known gaps in `docs/phase_08_packaging.md`, `docs/phase_09_api.md`, and `docs/phase_10_database.md`. The holdout has been used, so don't tune against it or quote it as an unbiased test of anything changed afterwards. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend is FastAPI, and the database is SQLite through SQLAlchemy, at `data/processed/shopsense.db`. The frontend stack is not confirmed.
+Phases 0 to 11 are complete. Phase 12 is next. See known gaps in `docs/phase_08_packaging.md`, `docs/phase_09_api.md`, `docs/phase_10_database.md`, and `docs/phase_11_frontend.md`. The holdout has been used, so don't tune against it or quote it as an unbiased test of anything changed afterwards. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend is FastAPI, and the database is SQLite through SQLAlchemy, at `data/processed/shopsense.db`. The frontend is React with Vite and TypeScript, in `frontend/`.
 
 ## Commands
 - Install: `uv sync`
@@ -50,14 +50,17 @@ Phases 0 to 10 are complete. Phase 11 is next. See known gaps in `docs/phase_08_
 - Package models: `uv run python -m src.models.package`
 - Load the database: `uv run python -m src.db.load`
 - Run the API: `uv run uvicorn api.main:app --reload`
+- Run the frontend: `cd frontend && npm run dev` (set `SHOPSENSE_API_URL` if the API isn't on port 8000)
+- Frontend checks: `cd frontend && npm run typecheck && npm run lint && npm test && npm run build`
+- After changing the API: `uv run python -m api.export_openapi`, then `cd frontend && npm run generate:api`
 - Test: `uv run pytest`
 - Lint and format: `uv run ruff check .` and `uv run ruff format .`
 - Add a dependency: `uv add <package>`, never `pip install`
 
 ## Structure
-`data/raw/` (read-only), `data/processed/`, `notebooks/`, `src/{data,features,models,db}/`, `models/`, `api/`, `tests/`, `docs/`, `reports/`. `frontend/` is planned for Phase 11.
+`data/raw/` (read-only), `data/processed/`, `notebooks/`, `src/{data,features,models,db}/`, `models/`, `api/`, `frontend/`, `tests/`, `docs/`, `reports/`.
 
-Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`. Load raw data with `src/data/load.py`. The API reads through `Store` in `src/db/store.py`. Keep targets out of the database, and never let prediction logging break a prediction.
+Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`. Load raw data with `src/data/load.py`. The API reads through `Store` in `src/db/store.py`. Keep targets out of the database, and never let prediction logging break a prediction. The frontend gets every number from the API and uses the types generated in `frontend/src/api/schema.d.ts`. Keep the training-data and historical-data labels on any page that shows queue scores.
 
 Orders purchased from `HOLDOUT_START` in `src/config.py` are the final test period. Study target relationships on earlier orders only, and split by time, never randomly. Follow the rules in `docs/phase_02_eda.md`.
 

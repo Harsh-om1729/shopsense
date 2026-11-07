@@ -142,6 +142,17 @@ class Services:
         self.log(DAILY, {"start": start, "days": days}, result)
         return result
 
+    def forecast_options(self) -> dict:
+        """Return what the forecast rules can answer, so clients don't guess."""
+        daily = self.predictor(DAILY)
+        weekly = self.predictor(CATEGORY)
+        return {
+            "data_end_date": daily.data_end().date(),
+            "latest_daily_date": daily.latest_date().date(),
+            "latest_week_end": weekly.latest_week_end().date(),
+            "categories": weekly.categories(),
+        }
+
     def category_forecast(self, week_end: date, category: str) -> dict:
         rows = pd.DataFrame({"week_end": [week_end], "category": [category]})
         predicted = self.predictor(CATEGORY).predict(rows)

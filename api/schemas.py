@@ -95,6 +95,13 @@ class DailyForecast(BaseModel):
     predicted_orders: float
 
 
+class ForecastOptions(BaseModel):
+    data_end_date: date
+    latest_daily_date: date
+    latest_week_end: date
+    categories: list[str]
+
+
 class CategoryForecast(BaseModel):
     week_end: date
     category: str

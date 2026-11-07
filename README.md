@@ -30,6 +30,32 @@ uv add <package>              # add a dependency and update the lockfile
 uv run jupyter nbconvert --to notebook --execute --inplace notebooks/01_eda.ipynb  # rerun EDA
 ```
 
+## Frontend
+
+Run the API first, then in a second terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev      # site at http://localhost:5173
+npm test
+npm run build
+```
+
+If port 8000 is taken, run the API on another port and point the site at it:
+
+```bash
+uv run uvicorn api.main:app --port 8010
+SHOPSENSE_API_URL=http://127.0.0.1:8010 npm run dev
+```
+
+After changing the API, regenerate the frontend's types:
+
+```bash
+uv run python -m api.export_openapi
+cd frontend && npm run generate:api
+```
+
 ## Data
 
 Download the Olist dataset and put its 9 CSV files in `data/raw/olist/`. Data files aren't committed to git.
