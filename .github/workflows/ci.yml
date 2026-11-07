@@ -1,0 +1,51 @@
+# Checks that run on GitHub for every push and pull request.
+#
+# The data and trained models aren't in git, so steps that need them can't run
+# here. Tests that need them skip themselves, and scripts/check_all.sh runs
+# everything locally, including the browser tests and the full rebuild.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install
+        run: uv sync --locked
+      - name: Lint
+        run: uv run ruff check .
+      - name: Formatting
+        run: uv run ruff format --check .
+      - name: Tests
+        run: uv run pytest
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Type check
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Tests
+        run: npm test
+      - name: Build
+        run: npm run build

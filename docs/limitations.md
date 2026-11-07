@@ -20,3 +20,4 @@
 - **Missing freight inputs:** estimates without dimensions or distance are weak, because training data almost always had them.
 - **Monitoring:** predictions are logged, but they can't be compared with outcomes until new data arrives.
 - **Licence:** not stated in the data files. Check it before deploying publicly.
+- **Deployment:** local Docker only, because there's no login.

@@ -38,7 +38,7 @@ Act as a senior ML engineer and mentor. Teach how and why things work, not just 
 13. Deployment and documentation
 
 ## Status
-Phases 0 to 11 are complete. Phase 12 is next. See known gaps in `docs/phase_08_packaging.md`, `docs/phase_09_api.md`, `docs/phase_10_database.md`, and `docs/phase_11_frontend.md`. The holdout has been used, so don't tune against it or quote it as an unbiased test of anything changed afterwards. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend is FastAPI, and the database is SQLite through SQLAlchemy, at `data/processed/shopsense.db`. The frontend is React with Vite and TypeScript, in `frontend/`.
+All phases (0 to 13) are complete. Deployment is local Docker only, because the app has no login and the dataset licence isn't confirmed. Retraining steps are in `docs/retraining.md`. See known gaps in `docs/phase_08_packaging.md` through `docs/phase_13_deployment.md`. The holdout has been used, so don't tune against it or quote it as an unbiased test of anything changed afterwards. The dataset is Olist, in `data/raw/olist/`. Processed tables are in `data/processed/`, and feature tables are in `data/processed/features/`. The ML stack is Python 3.13 with uv. The backend is FastAPI, and the database is SQLite through SQLAlchemy, at `data/processed/shopsense.db`. The frontend is React with Vite and TypeScript, in `frontend/`.
 
 ## Commands
 - Install: `uv sync`
@@ -54,11 +54,14 @@ Phases 0 to 11 are complete. Phase 12 is next. See known gaps in `docs/phase_08_
 - Frontend checks: `cd frontend && npm run typecheck && npm run lint && npm test && npm run build`
 - After changing the API: `uv run python -m api.export_openapi`, then `cd frontend && npm run generate:api`
 - Test: `uv run pytest`
+- Run with Docker: `docker compose up --build` (http://localhost:8088)
+- Every check: `scripts/check_all.sh`, or `scripts/check_all.sh --rebuild` to also rebuild from raw data
+- Browser tests: `cd frontend && npm run e2e` (uses ports 8011 and 5174, with prediction logging off)
 - Lint and format: `uv run ruff check .` and `uv run ruff format .`
 - Add a dependency: `uv add <package>`, never `pip install`
 
 ## Structure
-`data/raw/` (read-only), `data/processed/`, `notebooks/`, `src/{data,features,models,db}/`, `models/`, `api/`, `frontend/`, `tests/`, `docs/`, `reports/`.
+`data/raw/` (read-only), `data/processed/`, `notebooks/`, `src/{data,features,models,db}/`, `models/`, `api/`, `frontend/`, `scripts/`, `tests/`, `docs/`, `reports/`, `.github/workflows/`.
 
 Import project code from `src` (for example `from src import config`). Take paths and `RANDOM_SEED` from `src/config.py`. Load raw data with `src/data/load.py`. The API reads through `Store` in `src/db/store.py`. Keep targets out of the database, and never let prediction logging break a prediction. The frontend gets every number from the API and uses the types generated in `frontend/src/api/schema.d.ts`. Keep the training-data and historical-data labels on any page that shows queue scores.
 

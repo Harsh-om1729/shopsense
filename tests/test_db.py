@@ -260,3 +260,8 @@ def test_services_log_each_request_with_its_version(tmp_path):
         row = connection.execute(select(predictions)).one()
     assert row.model_name == "delivery_time_rule"
     assert row.model_version == "1.0.0"
+
+
+def test_record_can_be_turned_off(engine):
+    Store(engine, log_predictions=False).record("freight_cost", "1.0.0", {}, {})
+    assert count(engine, predictions) == 0

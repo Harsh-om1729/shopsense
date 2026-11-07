@@ -1,0 +1,21 @@
+# Keep data, models, and local tools out of the image.
+.git
+.github
+.venv
+.ruff_cache
+.pytest_cache
+**/__pycache__
+data
+models
+notebooks
+docs
+tests
+scripts
+frontend/node_modules
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+.env
+.env.*
+*.md
+!frontend/README.md

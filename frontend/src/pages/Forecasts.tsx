@@ -57,7 +57,15 @@ function DailyForecast({ options }: { options: Schemas['ForecastOptions'] }) {
             <ResponsiveContainer width="100%" height={260}>
               <LineChart data={forecast.data} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
                 <CartesianGrid vertical={false} className="chart-grid" />
-                <XAxis dataKey="date" tickLine={false} axisLine={false} minTickGap={24} className="chart-axis" />
+                <XAxis
+                  dataKey="date"
+                  tickLine={false}
+                  axisLine={false}
+                  minTickGap={24}
+                  tickMargin={8}
+                  padding={{ left: 12, right: 12 }}
+                  className="chart-axis"
+                />
                 <YAxis tickLine={false} axisLine={false} width={44} className="chart-axis" />
                 <Tooltip
                   formatter={(value) => [formatNumber(Number(value), 'whole'), 'Predicted orders']}

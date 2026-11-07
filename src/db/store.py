@@ -9,6 +9,7 @@ import pandas as pd
 from sqlalchemy import Engine, func, select
 from sqlalchemy.exc import SQLAlchemyError
 
+from src import config
 from src.db.schema import (
     DATA_TABLES,
     make_engine,
@@ -28,8 +29,11 @@ NOT_LOADED = "The database isn't loaded. Run src.db.load first."
 class Store:
     """Give the API its data, hiding how it's stored."""
 
-    def __init__(self, engine: Engine | None = None):
+    def __init__(self, engine: Engine | None = None, log_predictions: bool | None = None):
         self.engine = engine or make_engine()
+        self.log_predictions = (
+            config.LOG_PREDICTIONS if log_predictions is None else log_predictions
+        )
 
     def ready(self) -> bool:
         """Return whether every data table has rows."""
@@ -98,6 +102,8 @@ class Store:
 
     def record(self, model_name: str, version: str, inputs, outputs) -> None:
         """Log a served prediction. A logging failure must never break the prediction."""
+        if not self.log_predictions:
+            return
         try:
             row = {
                 "created_at": datetime.now(UTC).replace(tzinfo=None),

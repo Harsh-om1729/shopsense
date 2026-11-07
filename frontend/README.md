@@ -9,6 +9,7 @@ npm run typecheck
 npm run lint
 npm test
 npm run build
+npm run e2e        # browser tests, starting the API on 8011 and the site on 5174
 ```
 
 - **API address:** set `SHOPSENSE_API_URL` if the API runs on another port. Dev requests to `/api` are forwarded there.

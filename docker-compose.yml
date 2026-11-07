@@ -1,0 +1,20 @@
+# Run the full app with: docker compose up --build
+# Then open http://localhost:8088
+#
+# Build the models and database first (see README). They're attached from your
+# folders, never copied into the image.
+services:
+  shopsense:
+    build: .
+    image: shopsense:local
+    ports:
+      # 8088 on your computer, because 8000 and 8080 are often taken.
+      # Set SHOPSENSE_PORT to use another port.
+      - "127.0.0.1:${SHOPSENSE_PORT:-8088}:8000"
+    volumes:
+      - ./models:/app/models:ro
+      # Writable, because the API logs predictions to the database.
+      - ./data/processed:/app/data/processed
+    environment:
+      SHOPSENSE_LOG_PREDICTIONS: "${SHOPSENSE_LOG_PREDICTIONS:-true}"
+    restart: unless-stopped

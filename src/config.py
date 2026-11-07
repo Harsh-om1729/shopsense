@@ -12,6 +12,10 @@ DATA_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 FEATURES_DIR = DATA_PROCESSED_DIR / "features"
 DATABASE_PATH = DATA_PROCESSED_DIR / "shopsense.db"
 
+# Set SHOPSENSE_LOG_PREDICTIONS=false to stop recording predictions, for
+# example during browser tests, so they don't fill the real log.
+LOG_PREDICTIONS = os.environ.get("SHOPSENSE_LOG_PREDICTIONS", "true").lower() != "false"
+
 # Browser addresses allowed to call the API, separated by commas. The defaults
 # are the Vite dev server. Set SHOPSENSE_CORS_ORIGINS for a deployed site.
 CORS_ORIGINS = [
